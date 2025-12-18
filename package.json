@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "homepage": "https://Marin-Weis.github.io/p",
   "type": "module",
-    "scripts": {
+  "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",

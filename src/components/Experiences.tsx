@@ -58,56 +58,68 @@ const education = [
 ];
 
 const Experiences = () => {
-    return (
-        <div id="Education">
-            <Title title="Education"/>
-            <div className="flex flex-col-reverse md:flex-row justify-center items-center " >
-                <div className="flex flex-wrap gap-4 justify-center items-center md:w-1/3 mt-4 md:mt-0">
-                    {
-                        skills.map((skill) => (
-                            <div key={skill.id} className="flex justify-center items-center flex-col">
-                                <div className="w-24 h-24 p-2 rounded-full border-2 border-accent">
-                                    <img src={skill.img} alt={skill.name} 
-                                    className="object-cover rounded-full h-full w-full"/>
-                                </div>
-                                <span className="mt-2 text-sm">{skill.name}</span>
-                            </div>
-                        ))
-                    }
-                
-                </div>
+  return (
+    <div className="space-y-8 fade-in-up" id="Education">
+      <Title title="Education & Skills" />
 
-                <div className="md:ml-4 flex flex-col space-y-4">
-                    {
-                        education.map((education) => (
-                            <div
-                                key={education.id}
-                                className="flex-col bg-base-200 p-5 rounded-xl shadow-lg"
-                            >
-                                <div className="flex items-center">
-                                    <img 
-                                    src={education.image}
-                                    alt={education.institution}
-                                    className="object-cover h-10 w-10"
-                                    />
-                                    <div className="ml-4">
-                                        <h1 className="text-xl text-accent font-bold">
-                                            {education.title}, {education.institution}
-                                        </h1>
-                                        <span className="italic">{education.Result}</span><br/>
-                                        <span>{education.duration}</span>
-                                    </div>
-                                </div>
-                                <p className="mt-4">
-                                    {education.description}
-                                </p>
-                            </div>
-                        ))
-                    }
-                </div>
+      <div className="flex flex-col md:flex-row items-start gap-8">
+        <div className="flex flex-wrap gap-4 justify-center md:justify-start md:w-1/3">
+          {skills.map((skill) => (
+            <div
+              key={skill.id}
+              className="flex flex-col items-center gap-2 glass-card-soft px-3 py-3 hover:-translate-y-1 hover:shadow-xl transition-transform duration-200 w-28"
+            >
+              <div className="w-14 h-14 p-1 rounded-full border border-accent/60 bg-base-100/80">
+                <img
+                  src={skill.img}
+                  alt={skill.name}
+                  className="object-cover rounded-full h-full w-full"
+                />
+              </div>
+              <span className="mt-1 text-xs font-medium text-center">
+                {skill.name}
+              </span>
             </div>
+          ))}
         </div>
-    );
-}
+
+        <div className="flex-1 flex flex-col space-y-4">
+          {education.map((educationItem, index) => (
+            <div
+              key={educationItem.id}
+              className="glass-card p-5 md:p-6 relative overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-transform duration-200"
+            >
+              <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-accent to-primary/60" />
+              <div className="flex items-start gap-4">
+                <img
+                  src={educationItem.image}
+                  alt={educationItem.institution}
+                  className="object-cover h-10 w-10 rounded-md border border-base-300/70"
+                />
+                <div>
+                  <h2 className="text-base md:text-lg font-semibold text-accent">
+                    {educationItem.title}
+                  </h2>
+                  <p className="text-xs md:text-sm text-base-content/80 font-medium">
+                    {educationItem.institution}
+                  </p>
+                  <p className="text-xs italic mt-1">
+                    {educationItem.Result} · {educationItem.duration}
+                  </p>
+                </div>
+              </div>
+              <p className="mt-3 text-xs md:text-sm text-base-content/80">
+                {educationItem.description}
+              </p>
+              <span className="badge badge-ghost badge-xs absolute right-4 top-4">
+                {index === 0 ? "Current" : "Completed"}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Experiences;
