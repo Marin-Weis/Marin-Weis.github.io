@@ -99,7 +99,7 @@ const Projects = () => {
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-56 object-cover md:h-64 transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-auto object-contain"
               />
               <span className="badge badge-accent badge-sm absolute left-4 top-4">
                 {project.category === "web" ? "Web app" : "Mobile app"}
