@@ -1,8 +1,8 @@
 {
-  "name": "p",
+  "name": "marin-weis-portfolio",
   "private": true,
-  "version": "0.0.0",
-  "homepage": "https://Marin-Weis.github.io/p",
+  "version": "1.0.0",
+  "homepage": "https://marin-weis.github.io",
   "type": "module",
   "scripts": {
     "dev": "vite",

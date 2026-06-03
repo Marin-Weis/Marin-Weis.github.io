@@ -1,9 +1,11 @@
 # Portfolio – Marin Weis
 
-👋 Welcome to my personal portfolio!
+👋 Welcome to my personal portfolio! / Bienvenue sur mon portfolio !
 
-I am a **2nd-year BUT Informatique student in Vannes (France)**.  
-This website presents my profile, technical skills, and the projects I have completed as part of my academic work and personal learning.
+I am a **BUT Informatique student in Vannes (France)**.
+This website presents my profile, technical skills, and the projects I have
+completed as part of my academic work and personal learning. The site is
+**bilingual (FR / EN)** with a language switcher.
 
 ---
 
@@ -12,21 +14,22 @@ This website presents my profile, technical skills, and the projects I have comp
 
 ---
 
-## 🛠️ Technologies Used
-- **React**
-- **TypeScript**
-- **HTML5 / CSS3**
-- **Git & GitHub**
-- **GitHub Pages** (deployment)
+## 🛠️ Tech Stack
+- **React 19** + **TypeScript**
+- **Vite** (build tooling)
+- **Tailwind CSS** + **daisyUI** (styling & theming)
+- **react-router-dom** (HashRouter, GitHub Pages friendly)
+- **GitHub Pages** + `gh-pages` (deployment)
 
 ---
 
 ## 📂 Features
-- Personal presentation
-- Projects showcase
-- Skills overview
-- Responsive design
-- Automatic deployment with `gh-pages`
+- Personal presentation & about
+- Projects showcase with category filter and a detailed case study
+- Education, skills & professional experience
+- Bilingual content (French / English)
+- Light / dark theme toggle
+- Responsive, animated design
 
 ---
 
@@ -36,4 +39,13 @@ This website presents my profile, technical skills, and the projects I have comp
 git clone https://github.com/Marin-Weis/Marin-Weis.github.io.git
 cd Marin-Weis.github.io
 npm install
-npm start
+npm run dev      # start the dev server (http://localhost:5173)
+```
+
+### Other scripts
+
+```bash
+npm run build    # type-check + production build
+npm run preview  # preview the production build locally
+npm run deploy   # build and publish to GitHub Pages
+```

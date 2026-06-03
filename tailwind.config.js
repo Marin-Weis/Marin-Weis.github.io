@@ -7,43 +7,21 @@ export default {
         "./src/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ['Inter', 'system-ui', 'sans-serif'],
+                display: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
+            },
+        },
     },
     plugins: [
         daisyui,
     ],
 
+    // Custom "marin" / "marindark" themes are defined in src/index.css
+    // (daisyUI 5 reads themes from CSS, not from this JS config).
     daisyui: {
-        themes: ["light", 
-            "dark",
-            "cupcake",
-            "bumblebee",
-            "emerald",
-            "corporate",
-            "synthwave",
-            "retro",
-            "cyberpunk",
-            "valentine",
-            "halloween",
-            "garden",
-            "forest",
-            "aqua",
-            "lofi",
-            "pastel",
-            "fantasy",
-            "wireframe",
-            "black",
-            "luxury",
-            "dracula",
-            "cmyk",
-            "autumn",
-            "business",
-            "acid",
-            "lemonade",
-            "night",
-            "coffee",
-            "winter",
-            "procyon"
-        ],
+        themes: ["light", "dark"],
+        darkTheme: "marindark",
     },
 }

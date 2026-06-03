@@ -1,75 +1,101 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
+import { ExternalLink } from "lucide-react";
 import Title from "./Title";
+import { useLanguage } from "../i18n/language";
 
-import secouriste from "../assets/projects/secouriste.png";
-import dual from "../assets/projects/Dual.png";
+import secouriste from "../assets/projects/Secouriste.webp";
+import dual from "../assets/projects/Dual.webp";
+import askCombakCover from "../assets/projects/Ask Combak/askcombak-cover.webp";
+import mongolingoCover from "../assets/projects/Mongolingo/mongolingo-cover.webp";
 
 import github from "../assets/icons/github.png";
 import youtube from "../assets/icons/youtube.png";
 
 type ProjectCategory = "web" | "mobile";
+type ProjectKey = "firstAid" | "dual" | "askCombak" | "mongolingo";
 
 interface Project {
-  id: number;
-  title: string;
-  description: string;
+  key: ProjectKey;
   technologies: string[];
-  demolink: string;
-  repolink: string;
+  demolink?: string;
+  repolink?: string;
   image: string;
   category: ProjectCategory;
+  caseStudyPath?: string;
 }
 
 const projects: Project[] = [
   {
-    id: 1,
-    title: "First Aid Application",
-    description:
-      "A mobile application for managing rescue workers and their assignments. Rescuers can register, declare their certifications (PSE1, PSE2, SSA, etc.), and consult their deployments, while administrators manage competencies and automatically assign missions based on skills and availability.",
+    key: "askCombak",
+    technologies: ["Next.js", "React", "TypeScript", "MongoDB", "Claude"],
+    demolink: "https://www.combak.co/ask",
+    image: askCombakCover,
+    category: "web",
+    caseStudyPath: "/ask-combak",
+  },
+  {
+    key: "dual",
+    technologies: ["Kotlin", "Jetpack Compose", "Ktor", "SQLite"],
+    repolink: "https://github.com/Marin-Weis/Dual-projectBiathlon",
+    image: dual,
+    category: "mobile",
+    caseStudyPath: "/dual",
+  },
+  {
+    key: "mongolingo",
+    technologies: ["React", "Vite", "Node", "Express", "MongoDB"],
+    demolink: "https://youtu.be/CKsS4sp4e6w",
+    repolink: "https://github.com/Marin-Weis/mongolingo",
+    image: mongolingoCover,
+    category: "web",
+    caseStudyPath: "/mongolingo",
+  },
+  {
+    key: "firstAid",
     technologies: ["Java", "SQL", "DHCP", "DNS"],
     demolink: "https://www.youtube.com/watch?v=h1l--gwkGtM",
     repolink: "https://github.com/Marin-Weis/PROJECT-First-aid-application",
     image: secouriste,
     category: "mobile",
+    caseStudyPath: "/first-aid",
   },
-  {
-    id: 2,
-    title: "Dual Application",
-    description:
-      "An Android application designed to support PE teachers during biathlon evaluation sessions. Developed in collaboration with the IUT de Vannes and Collège Notre-Dame-La-Blanche, the app works fully offline and manages student performance in real time.",
-    technologies: ["Java", "Kotlin"],
-    demolink: "#Projects",
-    repolink: "https://github.com/Marin-Weis/Dual-projectBiathlon",
-    image: dual,
-    category: "mobile",
-  },
-];
-
-const filterOptions: { label: string; value: ProjectCategory | "all" }[] = [
-  { label: "All", value: "all" },
-  { label: "Web", value: "web" },
-  { label: "Mobile", value: "mobile" },
 ];
 
 const Projects = () => {
+  const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<ProjectCategory | "all">(
     "all"
   );
+
+  const filterOptions: { label: string; value: ProjectCategory | "all" }[] = [
+    { label: t.projects.filters.all, value: "all" },
+    { label: t.projects.filters.web, value: "web" },
+    { label: t.projects.filters.mobile, value: "mobile" },
+  ];
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "all") return projects;
     return projects.filter((p) => p.category === activeFilter);
   }, [activeFilter]);
 
+  // Build a seamless marquee loop: repeat the (filtered) list until it's wide
+  // enough to overflow the container, then duplicate it for the -50% loop.
+  const marqueeItems = useMemo(() => {
+    if (filteredProjects.length === 0) return [];
+    const base = [...filteredProjects];
+    while (base.length < 4) base.push(...filteredProjects);
+    return [...base, ...base];
+  }, [filteredProjects]);
+  const half = marqueeItems.length / 2;
+
   return (
     <div className="space-y-6 fade-in-up">
-      <Title title="Projects" />
+      <Title title={t.projects.title} />
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="text-xs md:text-sm text-base-content/80 max-w-xl">
-          A selection of my recent academic and personal projects. Filter by
-          type to explore web or mobile work.
+          {t.projects.intro}
         </p>
 
         <div className="inline-flex gap-2 rounded-full bg-base-200/70 p-1 border border-base-300/70">
@@ -89,73 +115,98 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6 md:gap-8 mt-4">
-        {filteredProjects.map((project) => (
-          <article
-            key={project.id}
-            className="glass-card overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-2xl transition-transform duration-200 group"
-          >
-            <div className="relative overflow-hidden">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-auto object-contain"
-              />
-              <span className="badge badge-accent badge-sm absolute left-4 top-4">
-                {project.category === "web" ? "Web app" : "Mobile app"}
-              </span>
-            </div>
-
-            <div className="p-5 flex flex-col flex-1 gap-3">
-              <div>
-                <h2 className="font-semibold text-lg mb-1">{project.title}</h2>
-                <p className="text-xs md:text-sm text-base-content/80">
-                  {project.description}
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mt-1">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="badge badge-outline badge-xs md:badge-sm"
-                  >
-                    {tech}
+      <div className="marquee -mx-4 sm:-mx-6 lg:-mx-8">
+        <div
+          key={activeFilter}
+          className="marquee__track gap-6 md:gap-8 px-4 sm:px-6 lg:px-8 py-2"
+          style={{ "--marquee-duration": "44s" } as CSSProperties}
+        >
+          {marqueeItems.map((project, index) => {
+            const item = t.projects.items[project.key];
+            const isClone = index >= half;
+            return (
+              <article
+                key={index}
+                aria-hidden={isClone}
+                className="glass-card w-80 shrink-0 overflow-hidden flex flex-col hover:-translate-y-1 hover:shadow-2xl transition-transform duration-200 group"
+              >
+                <div className="relative overflow-hidden bg-base-200/40 aspect-[7/5]">
+                  <img
+                    src={project.image}
+                    alt={item.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                  <span className="badge badge-accent badge-sm absolute left-4 top-4">
+                    {project.category === "web"
+                      ? t.projects.badges.web
+                      : t.projects.badges.mobile}
                   </span>
-                ))}
-              </div>
+                </div>
 
-              <div className="mt-3 flex flex-wrap gap-3">
-                <a
-                  href={project.demolink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-outline btn-sm md:btn-md gap-2"
-                >
-                  <span>Demo</span>
-                  <img src={youtube} alt="YouTube" className="w-4 h-4" />
-                </a>
-                <a
-                  href={project.repolink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-ghost btn-sm md:btn-md gap-2"
-                >
-                  <span>Code</span>
-                  <img src={github} alt="GitHub" className="w-4 h-4" />
-                </a>
-                {project.id === 1 && (
-                  <Link
-                    to="/first-aid"
-                    className="btn btn-ghost btn-sm md:btn-md"
-                  >
-                    Case study
-                  </Link>
-                )}
-              </div>
-            </div>
-          </article>
-        ))}
+                <div className="p-5 flex flex-col flex-1 gap-3">
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
+                    <p className="text-xs md:text-sm text-base-content/80">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mt-1">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="badge badge-outline badge-xs md:badge-sm"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-auto pt-2 flex flex-wrap gap-2">
+                    {project.caseStudyPath && (
+                      <Link
+                        to={project.caseStudyPath}
+                        tabIndex={isClone ? -1 : 0}
+                        className="btn btn-accent btn-sm"
+                      >
+                        {t.projects.buttons.caseStudy}
+                      </Link>
+                    )}
+                    {project.demolink && (
+                      <a
+                        href={project.demolink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        tabIndex={isClone ? -1 : 0}
+                        className="btn btn-outline btn-sm gap-2"
+                      >
+                        <span>{t.projects.buttons.demo}</span>
+                        {project.demolink.includes("youtu") ? (
+                          <img src={youtube} alt="" className="w-4 h-4" />
+                        ) : (
+                          <ExternalLink className="w-4 h-4" />
+                        )}
+                      </a>
+                    )}
+                    {project.repolink && (
+                      <a
+                        href={project.repolink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        tabIndex={isClone ? -1 : 0}
+                        className="btn btn-ghost btn-sm gap-2"
+                      >
+                        <span>{t.projects.buttons.code}</span>
+                        <img src={github} alt="" className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
