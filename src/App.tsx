@@ -14,7 +14,13 @@ import MongolingoCaseStudy from "./components/MongolingoCaseStudy";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 
-import { HashRouter, Route, Routes, Link, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import { useLanguage } from "./i18n/language";
 import { scrollToSection } from "./lib/scroll";
 
@@ -136,7 +142,7 @@ const RoutedContent = () => {
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <div className="page-shell">
         <Navbar />
 
@@ -146,6 +152,6 @@ export default function App() {
           <Footer />
         </div>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
