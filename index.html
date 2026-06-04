@@ -31,6 +31,8 @@
       content="Portfolio of Marin Weis, computer science student (BUT Informatique) in Vannes, France. Web & mobile development projects in Java, Kotlin, React, SQL and PHP."
     />
     <meta name="author" content="Marin Weis" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://marin-weis.github.io/" />
 
     <!-- Open Graph / social sharing -->
     <meta property="og:type" content="website" />
@@ -52,6 +54,33 @@
       name="twitter:description"
       content="Web & mobile development portfolio — Java, Kotlin, React, SQL, PHP."
     />
+
+    <!-- Structured data: helps Google understand who this site is about -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Marin Weis",
+        "url": "https://marin-weis.github.io/",
+        "image": "https://marin-weis.github.io/og-image.png",
+        "jobTitle": "Computer Science Student (BUT Informatique)",
+        "description": "Computer science student in Vannes, France — web & mobile development (Java, Kotlin, React, SQL, PHP). Open to internships and projects.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Vannes",
+          "addressCountry": "FR"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "IUT de Vannes — Université Bretagne Sud"
+        },
+        "knowsLanguage": ["French", "English", "German"],
+        "sameAs": [
+          "https://github.com/Marin-Weis",
+          "https://www.linkedin.com/in/marin-weis-22143a353/"
+        ]
+      }
+    </script>
     <script type="module" crossorigin src="/assets/index-CEcCK3Vj.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-CYOjxnaW.css">
   </head>
