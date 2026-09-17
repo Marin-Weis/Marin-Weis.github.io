@@ -9,6 +9,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://marin-weis.github.io/stage-combak</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://marin-weis.github.io/dual</loc>
     <priority>0.8</priority>
   </url>
