@@ -1,0 +1,22 @@
+{
+  "name": "Marin Weis — Portfolio Développeur Full-Stack, Web & Mobile (BUT Informatique Vannes)",
+  "short_name": "Marin Weis",
+  "description": "Portfolio officiel de Marin Weis, étudiant en BUT Informatique à l'IUT de Vannes (UBS) et développeur Full-Stack Web & Mobile (React, Next.js, Java, Kotlin, SQL, MongoDB).",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "lang": "fr-FR",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png"
+    }
+  ]
+}
