@@ -39,7 +39,7 @@ const Footer = () => {
                 <img src={github} alt="GitHub" className="w-5 h-5" />
               </a>
               <a
-                href="https://www.linkedin.com/in/marin-weis-22143a353/"
+                href="https://www.linkedin.com/in/marin-weis/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"

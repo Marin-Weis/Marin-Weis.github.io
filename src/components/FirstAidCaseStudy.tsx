@@ -35,7 +35,7 @@ const collaborators: {
     name: "Marin Weis",
     photo: photoMarin,
     github: "https://github.com/Marin-Weis",
-    linkedin: "https://www.linkedin.com/in/marin-weis-22143a353/",
+    linkedin: "https://www.linkedin.com/in/marin-weis/",
   },
   {
     name: "Matthieu Gouélo",
