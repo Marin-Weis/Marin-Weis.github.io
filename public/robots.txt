@@ -1,4 +1,37 @@
+# robots.txt — https://marin-weis.github.io/
+# Optimisé pour Google Search (SEO) & Moteurs IA Génératifs (GEO : Gemini, ChatGPT, Perplexity, Claude)
+
 User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 Sitemap: https://marin-weis.github.io/sitemap.xml
+# Contexte structuré pour LLMs (Gemini, ChatGPT, Perplexity) :
+# https://marin-weis.github.io/llms.txt
+# https://marin-weis.github.io/llms-full.txt

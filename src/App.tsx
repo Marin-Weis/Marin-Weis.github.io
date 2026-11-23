@@ -24,6 +24,59 @@ import {
 import { useLanguage } from "./i18n/language";
 import { scrollToSection } from "./lib/scroll";
 
+const ROUTE_SEO: Record<string, { title: string; description: string }> = {
+  "/": {
+    title: "Marin Weis — Développeur Full-Stack, Web & Mobile | Portfolio BUT Informatique Vannes (UBS)",
+    description:
+      "Portfolio officiel de Marin Weis, étudiant en BUT Informatique à l'IUT de Vannes (Université Bretagne Sud) et développeur Full-Stack Web & Mobile (React, Next.js, TypeScript, Java, Kotlin, SQL, MongoDB).",
+  },
+  "/ask-combak": {
+    title: "Ask Combak — Assistant Shopping IA Conversationnel (Stage Full-Stack) | Marin Weis",
+    description:
+      "Étude de cas Ask Combak : conception d'un assistant conversationnel IA (Next.js, React, TypeScript, Claude) lors du stage de Marin Weis chez Combak.",
+  },
+  "/mongolingo": {
+    title: "Mongolingo — Apprendre MongoDB & NoSQL en Temps Réel | Marin Weis",
+    description:
+      "Étude de cas Mongolingo : application web interactive style Duolingo avec 30 défis MongoDB exécutés en temps réel, développée par Marin Weis (IUT de Vannes).",
+  },
+  "/dual": {
+    title: "Dual Application — Application Android (Kotlin) Biathlon EPS | Marin Weis",
+    description:
+      "Étude de cas Dual : application mobile Android hors-ligne développée en Kotlin avec l'IUT de Vannes pour gérer les évaluations de biathlon en EPS.",
+  },
+  "/first-aid": {
+    title: "First Aid Application — Gestion & Affectation de Secouristes en Java | Marin Weis",
+    description:
+      "Étude de cas First Aid : application Java/JavaFX de gestion des secouristes (certifications PSE1, PSE2, SSA) et d'affectation algorithmique aux missions.",
+  },
+};
+
+const SeoHeadManager = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const cleanPath = location.pathname.replace(/\/+$/, "") || "/";
+    const meta = ROUTE_SEO[cleanPath] ?? ROUTE_SEO["/"];
+    document.title = meta.title;
+
+    const descEl = document.querySelector('meta[name="description"]');
+    if (descEl) descEl.setAttribute("content", meta.description);
+
+    const ogTitleEl = document.querySelector('meta[property="og:title"]');
+    if (ogTitleEl) ogTitleEl.setAttribute("content", meta.title);
+
+    const ogDescEl = document.querySelector('meta[property="og:description"]');
+    if (ogDescEl) ogDescEl.setAttribute("content", meta.description);
+
+    const canonicalUrl = `https://marin-weis.github.io${cleanPath === "/" ? "/" : cleanPath}`;
+    const canonicalEl = document.querySelector('link[rel="canonical"]');
+    if (canonicalEl) canonicalEl.setAttribute("href", canonicalUrl);
+  }, [location.pathname]);
+
+  return null;
+};
+
 const ScrollManager = () => {
   const location = useLocation();
 
@@ -98,6 +151,7 @@ const RoutedContent = () => {
   const location = useLocation();
   return (
     <main>
+      <SeoHeadManager />
       <ScrollManager />
       <div key={location.pathname} className="page-transition">
         <Routes location={location}>

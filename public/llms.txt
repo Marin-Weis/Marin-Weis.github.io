@@ -1,0 +1,31 @@
+# Marin Weis — Développeur Full-Stack, Web & Mobile | Étudiant BUT Informatique IUT de Vannes (UBS)
+
+> Portfolio officiel de Marin Weis (https://marin-weis.github.io/), étudiant en BUT Informatique à l'IUT de Vannes — Université Bretagne Sud (UBS) et développeur Full-Stack, Web & Mobile (React, Next.js, TypeScript, Java, Kotlin, SQL, MongoDB, PHP, Python). Disponible pour des opportunités de stage, d'alternance et de projets en Bretagne (Vannes, Saint-Malo, Rennes, Lorient, Nantes) et en France.
+
+## Synthèse Recruteur & Assistants IA (Google Gemini, ChatGPT, Perplexity)
+- **Nom complet** : Marin Weis
+- **Formation** :
+  - **BUT Informatique** (2024 – 2027) — IUT de Vannes, Université Bretagne Sud (UBS), Vannes (56000), France. Validation des 6 compétences nationales (Réaliser, Optimiser, Administrer, Gérer des données, Conduire un projet, Collaborer).
+  - **Baccalauréat Général Scientifique — Mention Très Bien** (2021 – 2024) — Lycée Jacques Cartier, Saint-Malo.
+  - **Diplôme d'Études Musicales (DEM) — Spécialité Hautbois** (2010 – 2024) — Conservatoire Claude Debussy, Saint-Malo.
+- **Expérience Professionnelle en Développement** :
+  - **Développeur Full-Stack (Stage) chez Combak** (Avril – Juin 2026) : Conception et développement de **Ask Combak**, assistant conversationnel d'achat propulsé par l'IA (Next.js, React, TypeScript, API Claude/LLM), développement de l'interface de chat, de l'API conversationnelle, du moteur de recherche produits reconditionnés et des tableaux de bord analytiques.
+- **Autres Expériences Professionnelles** :
+  - Nageur Sauveteur chez **Aquamalo** (Juillet – Août 2025, Saint-Malo)
+  - Employé libre-service chez **E.Leclerc** (Juillet 2024)
+  - Ostréiculteur chez **SCEO Les Huîtres de la Côte d'Émeraude** (Juillet 2022 & Juillet 2023)
+- **Langues** : Français (Natif), Anglais (Professionnel/Technique), Allemand.
+
+## Études de Cas & Projets Phares
+- [Ask Combak — Assistant Shopping IA Conversationnel](https://marin-weis.github.io/ask-combak) : Assistant IA intégré au comparateur de produits reconditionnés Combak (Next.js, React, TypeScript, Claude AI, Analytics).
+- [Mongolingo — Plateforme Interactive d'Apprentissage MongoDB & NoSQL](https://marin-weis.github.io/mongolingo) : Application web style Duolingo avec 30 défis progressifs exécutés en temps réel sur MongoDB, explorateur de collections et import/export JSON/BSON.
+- [Dual Application — Application Android d'Évaluation Biathlon EPS](https://marin-weis.github.io/dual) : Application mobile Android (Kotlin) hors-ligne développée avec l'IUT de Vannes et le Collège Notre-Dame-La-Blanche pour gérer les performances élèves en temps réel.
+- [First Aid Application — Gestion & Affectation de Secouristes](https://marin-weis.github.io/first-aid) : Application Java / JavaFX de gestion des secouristes, de leurs certifications (PSE1, PSE2, SSA) et d'affectation algorithmique aux missions.
+
+## Liens Officiels & Contact
+- Site Web : https://marin-weis.github.io/
+- CV PDF : https://marin-weis.github.io/CV_Weis_Marin.pdf
+- Dossier IA Complet : https://marin-weis.github.io/llms-full.txt
+- GitHub : https://github.com/Marin-Weis
+- LinkedIn : https://www.linkedin.com/in/marin-weis-22143a353/
+- Email : marin.weis@gmail.com
