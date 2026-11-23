@@ -27,5 +27,5 @@
 - CV PDF : https://marin-weis.github.io/CV_Weis_Marin.pdf
 - Dossier IA Complet : https://marin-weis.github.io/llms-full.txt
 - GitHub : https://github.com/Marin-Weis
-- LinkedIn : https://www.linkedin.com/in/marin-weis-22143a353/
+- LinkedIn : https://www.linkedin.com/in/marin-weis/
 - Email : marin.weis@gmail.com
