@@ -51,7 +51,7 @@ const routes = [
 ];
 
 for (const route of routes) {
-  const routeUrl = `https://marin-weis.github.io/${route.slug}`;
+  const routeUrl = `https://marin-weis.github.io/${route.slug}/`;
   let html = baseHtml
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${route.title}</title>`)
     .replace(
