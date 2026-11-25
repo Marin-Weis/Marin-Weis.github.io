@@ -12,6 +12,7 @@ import DualCaseStudy from "./components/DualCaseStudy";
 import AskCombakCaseStudy from "./components/AskCombakCaseStudy";
 import MongolingoCaseStudy from "./components/MongolingoCaseStudy";
 import DevopsLabCaseStudy from "./components/DevopsLabCaseStudy";
+import IncidentTrackerCaseStudy from "./components/IncidentTrackerCaseStudy";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 
@@ -30,6 +31,11 @@ const ROUTE_SEO: Record<string, { title: string; description: string }> = {
     title: "Marin Weis — Développeur Full-Stack, Web & Mobile | Portfolio BUT Informatique Vannes (UBS)",
     description:
       "Portfolio officiel de Marin Weis, étudiant en BUT Informatique à l'IUT de Vannes (Université Bretagne Sud) et développeur Full-Stack Web & Mobile (React, Next.js, TypeScript, Java, Kotlin, SQL, MongoDB).",
+  },
+  "/incident-tracker": {
+    title: "Incident Tracker API — Java / Spring Boot 3, JWT & PostgreSQL | Marin Weis",
+    description:
+      "Étude de cas Incident Tracker API : API REST Spring Boot 3 de gestion d'incidents techniques avec authentification JWT, RBAC, PostgreSQL, Flyway, OpenAPI et Docker.",
   },
   "/devops-lab": {
     title: "DevOps Monitoring Lab — Docker, Ansible, Prometheus & Grafana | Marin Weis",
@@ -199,6 +205,14 @@ const RoutedContent = () => {
             element={
               <CaseStudyPage>
                 <DevopsLabCaseStudy />
+              </CaseStudyPage>
+            }
+          />
+          <Route
+            path="/incident-tracker"
+            element={
+              <CaseStudyPage>
+                <IncidentTrackerCaseStudy />
               </CaseStudyPage>
             }
           />

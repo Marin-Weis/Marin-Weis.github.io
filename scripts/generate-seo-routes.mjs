@@ -13,6 +13,15 @@ const baseHtml = fs.readFileSync(baseHtmlPath, "utf-8");
 
 const routes = [
   {
+    slug: "incident-tracker",
+    title: "Incident Tracker API — Java / Spring Boot 3, JWT & PostgreSQL | Marin Weis",
+    description:
+      "Étude de cas Incident Tracker API : API REST Spring Boot 3 de gestion d'incidents techniques avec authentification JWT, RBAC, PostgreSQL, Flyway, OpenAPI et Docker.",
+    heading: "Incident Tracker API — Spring Boot 3, JWT & PostgreSQL",
+    summary:
+      "API REST Java / Spring Boot 3 développée par Marin Weis pour la gestion d'incidents techniques : authentification JWT stateless, contrôle d'accès RBAC, filtrage dynamique JPA, migrations SQL Flyway, erreurs RFC 7807 ProblemDetail, Swagger UI et Docker.",
+  },
+  {
     slug: "devops-lab",
     title: "DevOps Monitoring Lab — Docker, Ansible, Prometheus & Grafana | Marin Weis",
     description:

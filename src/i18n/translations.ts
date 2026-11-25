@@ -124,6 +124,11 @@ const en = {
           description:
             "An AI-powered conversational shopping assistant built during my internship at Combak (a refurbished-tech comparator). It guides users through a conversation to recommend the right product and the best deals, directly embedded into the website.",
         },
+        incidentTracker: {
+          title: "Incident Tracker API",
+          description:
+            "A Spring Boot 3 REST API for technical incident management with stateless JWT auth, RBAC, dynamic JPA filtering, PostgreSQL/Flyway migrations, RFC 7807 errors, Swagger UI, and CI.",
+        },
         devopsLab: {
           title: "DevOps Monitoring Lab",
           description:
@@ -493,6 +498,79 @@ const en = {
         p2: "The hardest and most rewarding part was grounding the LLM in real product data, so the assistant gives trustworthy, useful recommendations rather than generic answers.",
       },
     },
+    incidentTracker: {
+      title: "Incident Tracker API",
+      badge: "Backend · Java / Spring Boot 3 · Personal project",
+      heading: "A production-style REST API for technical incident management with JWT security, PostgreSQL, Flyway migrations, and OpenAPI.",
+      intro:
+        "Incident Tracker API is a personal backend project built with Java and Spring Boot 3. It implements stateless JWT authentication with role-based access control, dynamic filtering and pagination using JPA Specifications, versioned PostgreSQL migrations via Flyway, RFC 7807 ProblemDetail error responses, and interactive Swagger UI documentation.",
+      coverAlt: "Swagger UI documentation of the Incident Tracker API",
+      repoButton: "View the repository",
+      meta: {
+        roleLabel: "My role",
+        role: "Solo backend developer",
+        stackLabel: "Tech stack",
+        stack: "Java 17/21 · Spring Boot 3 · Spring Security (JWT) · PostgreSQL · Flyway · Docker",
+        focusLabel: "Focus",
+        focus: "REST API design · Security & RBAC · Integration testing",
+      },
+      context: {
+        title: "Context",
+        text: "I wanted a clean, modern Spring Boot 3 codebase on GitHub demonstrating enterprise backend practices: stateless security, strict schema validation with Flyway, predictable error contracts, and automated end-to-end tests running in CI.",
+      },
+      architecture: {
+        title: "How it works",
+        text: "Incoming requests pass through a stateless JWT filter before reaching versioned REST controllers, a transactional service layer enforcing RBAC rules, and Spring Data JPA repositories backed by PostgreSQL 16.",
+        points: [
+          { label: "API Layer", value: "Spring Boot 3, Java records, OpenAPI 3 / Swagger UI" },
+          { label: "Security", value: "Spring Security 6, BCrypt, stateless JWT & RBAC" },
+          { label: "Persistence", value: "PostgreSQL 16, Spring Data JPA, Flyway migrations" },
+          { label: "Quality", value: "JUnit 5 + MockMvc integration tests, GitHub Actions CI" },
+        ],
+      },
+      features: [
+        {
+          title: "Stateless JWT & RBAC",
+          text: "Role-based and ownership-based access control.",
+          items: [
+            "User registration and login issuing HMAC-SHA256 JWT tokens.",
+            "Method-level @PreAuthorize('hasRole(ADMIN)') on destructive endpoints.",
+            "Ownership validation: only admins, reporters, or assignees can update an incident.",
+          ],
+        },
+        {
+          title: "Dynamic Filtering & Pagination",
+          text: "Type-safe queries built with JPA Specifications.",
+          items: [
+            "Combine status, priority, and keyword search (q) in a single endpoint.",
+            "Clamped pagination and sorting on creation date.",
+            "Aggregate /stats endpoint returning counts grouped by status and priority.",
+          ],
+        },
+        {
+          title: "Database Migrations & Error Contracts",
+          text: "Predictable schema and API responses.",
+          items: [
+            "Versioned Flyway SQL migrations (V1__init_schema.sql) with Hibernate ddl-auto: validate.",
+            "Global @RestControllerAdvice returning RFC 7807 ProblemDetail payloads.",
+            "Structured field-level validation errors for 400 Bad Request responses.",
+          ],
+        },
+        {
+          title: "Containerised & CI-Verified",
+          text: "Reproducible local stack and automated checks.",
+          items: [
+            "Multi-stage non-root Dockerfile + Docker Compose with PostgreSQL 16 healthchecks.",
+            "Unit and MockMvc integration tests covering auth, CRUD, filtering, comments, and RBAC.",
+            "GitHub Actions matrix testing on both Java 17 and Java 21.",
+          ],
+        },
+      ],
+      takeaway: {
+        p1: "Building this API reinforced how Spring Security 6, Flyway, and RFC 7807 ProblemDetail fit together in a clean layered architecture.",
+        p2: "The repository is fully tested, documented in English with Swagger UI, and ready to spin up in one Docker Compose command.",
+      },
+    },
     devopsLab: {
       title: "DevOps Monitoring Lab",
       badge: "DevOps · Observability as code · Personal project",
@@ -773,6 +851,11 @@ const fr: Dict = {
           title: "Ask Combak",
           description:
             "Un assistant d'achat conversationnel propulsé par l'IA, réalisé pendant mon stage chez Combak (comparateur de high-tech reconditionné). Il guide l'utilisateur via une conversation pour recommander le bon produit et les meilleures offres, directement intégré au site.",
+        },
+        incidentTracker: {
+          title: "Incident Tracker API",
+          description:
+            "Une API REST Spring Boot 3 de gestion d'incidents techniques avec authentification JWT, RBAC, filtrage dynamique JPA, migrations PostgreSQL/Flyway, erreurs RFC 7807, Swagger UI et CI.",
         },
         devopsLab: {
           title: "DevOps Monitoring Lab",
@@ -1143,6 +1226,79 @@ const fr: Dict = {
         p2: "La partie la plus difficile et la plus gratifiante a été d'ancrer le LLM dans de vraies données produits, pour que l'assistant donne des recommandations fiables et utiles, et non des réponses génériques.",
       },
     },
+    incidentTracker: {
+      title: "Incident Tracker API",
+      badge: "Backend · Java / Spring Boot 3 · Projet personnel",
+      heading: "Une API REST de gestion d'incidents techniques avec Spring Boot 3, sécurité JWT, PostgreSQL, Flyway et OpenAPI.",
+      intro:
+        "Incident Tracker API est un projet personnel backend développé en Java avec Spring Boot 3. Il met en place une authentification JWT stateless avec contrôle d'accès par rôles (RBAC), un filtrage dynamique et une pagination via JPA Specifications, des migrations SQL versionnées avec Flyway, des réponses d'erreur standardisées RFC 7807 (ProblemDetail) et une documentation interactive Swagger UI.",
+      coverAlt: "Documentation Swagger UI de l'API Incident Tracker",
+      repoButton: "Voir le dépôt",
+      meta: {
+        roleLabel: "Mon rôle",
+        role: "Développeur backend (projet solo)",
+        stackLabel: "Stack technique",
+        stack: "Java 17/21 · Spring Boot 3 · Spring Security (JWT) · PostgreSQL · Flyway · Docker",
+        focusLabel: "Focus",
+        focus: "Conception API REST · Sécurité & RBAC · Tests d'intégration",
+      },
+      context: {
+        title: "Contexte",
+        text: "Je voulais disposer sur GitHub d'une base Spring Boot 3 moderne illustrant les standards backend en entreprise : sécurité stateless, validation stricte du schéma avec Flyway, contrats d'erreurs normalisés et tests d'intégration automatisés en CI.",
+      },
+      architecture: {
+        title: "Comment ça marche",
+        text: "Chaque requête traverse un filtre JWT stateless avant d'atteindre les contrôleurs REST versionnés, une couche service transactionnelle qui vérifie les droits RBAC, puis les dépôts Spring Data JPA connectés à PostgreSQL 16.",
+        points: [
+          { label: "Couche API", value: "Spring Boot 3, Java records, OpenAPI 3 / Swagger UI" },
+          { label: "Sécurité", value: "Spring Security 6, BCrypt, JWT stateless & RBAC" },
+          { label: "Persistance", value: "PostgreSQL 16, Spring Data JPA, migrations Flyway" },
+          { label: "Qualité", value: "Tests JUnit 5 + MockMvc, CI GitHub Actions" },
+        ],
+      },
+      features: [
+        {
+          title: "JWT stateless & RBAC",
+          text: "Contrôle d'accès par rôle et par propriété.",
+          items: [
+            "Inscription et connexion délivrant des tokens JWT HMAC-SHA256.",
+            "Protection @PreAuthorize('hasRole(ADMIN)') sur la suppression d'incidents.",
+            "Vérification métier : seuls l'admin, le rapporteur ou l'assigné peuvent modifier un ticket.",
+          ],
+        },
+        {
+          title: "Filtrage dynamique & Pagination",
+          text: "Requêtes typées via Spring Data JPA Specifications.",
+          items: [
+            "Combinaison des filtres statut, priorité et recherche par mot-clé (q).",
+            "Pagination bornée et tri par date de création.",
+            "Endpoint /stats retournant les compteurs agrégés par statut et priorité.",
+          ],
+        },
+        {
+          title: "Migrations SQL & Erreurs RFC 7807",
+          text: "Schéma et contrats d'API prévisibles.",
+          items: [
+            "Migrations SQL Flyway (V1__init_schema.sql) avec Hibernate en ddl-auto: validate.",
+            "@RestControllerAdvice global renvoyant des réponses ProblemDetail (RFC 7807).",
+            "Erreurs de validation détaillées champ par champ sur les réponses 400.",
+          ],
+        },
+        {
+          title: "Conteneurisation & CI",
+          text: "Stack locale reproductible et vérifications automatiques.",
+          items: [
+            "Dockerfile multi-stage non-root et Docker Compose avec PostgreSQL 16.",
+            "Tests unitaires et d'intégration MockMvc couvrant auth, CRUD, filtres, commentaires et RBAC.",
+            "Pipeline GitHub Actions testant sur Java 17 et Java 21 + build Docker.",
+          ],
+        },
+      ],
+      takeaway: {
+        p1: "Ce projet m'a permis de mettre en pratique l'architecture en couches de Spring Boot 3 avec Spring Security 6, Flyway et ProblemDetail.",
+        p2: "Le dépôt est entièrement testé, documenté en anglais avec Swagger UI et déployable localement en une commande Docker Compose.",
+      },
+    },
     devopsLab: {
       title: "DevOps Monitoring Lab",
       badge: "DevOps · Observabilité as code · Projet personnel",
@@ -1421,6 +1577,11 @@ const de: Dict = {
           title: "Ask Combak",
           description:
             "Ein KI-gestützter dialogbasierter Einkaufsassistent, entwickelt während meines Praktikums bei Combak (Vergleichsportal für refurbished Technik). Er führt Nutzer durch ein Gespräch, um das passende Produkt und die besten Angebote zu empfehlen — direkt in die Website integriert.",
+        },
+        incidentTracker: {
+          title: "Incident Tracker API",
+          description:
+            "Eine Spring-Boot-3-REST-API zur Incident-Verwaltung mit JWT-Authentifizierung, RBAC, dynamischer JPA-Filterung, PostgreSQL/Flyway-Migrationen, RFC-7807-Fehlern, Swagger UI und CI.",
         },
         devopsLab: {
           title: "DevOps Monitoring Lab",
@@ -1789,6 +1950,79 @@ const de: Dict = {
       takeaway: {
         p1: "Dieses Praktikum hat mir beigebracht, ein echtes, produktionsreifes KI-Feature von A bis Z zu bauen — von der Frontend-UX über die API und die Daten bis zum Prompt-Engineering.",
         p2: "Am schwierigsten und lohnendsten war es, das LLM in echten Produktdaten zu verankern, damit der Assistent vertrauenswürdige, nützliche Empfehlungen gibt statt generischer Antworten.",
+      },
+    },
+    incidentTracker: {
+      title: "Incident Tracker API",
+      badge: "Backend · Java / Spring Boot 3 · Privatprojekt",
+      heading: "Eine produktionsnahe REST-API zur Incident-Verwaltung mit JWT-Sicherheit, PostgreSQL, Flyway-Migrationen und OpenAPI.",
+      intro:
+        "Incident Tracker API ist ein persönliches Backend-Projekt mit Java und Spring Boot 3. Es bietet zustandslose JWT-Authentifizierung mit rollenbasierter Zugriffskontrolle (RBAC), dynamische Filterung und Paginierung per JPA Specifications, versionierte PostgreSQL-Migrationen mit Flyway, RFC-7807-Fehlerantworten (ProblemDetail) und eine interaktive Swagger-UI-Dokumentation.",
+      coverAlt: "Swagger-UI-Dokumentation der Incident Tracker API",
+      repoButton: "Repository ansehen",
+      meta: {
+        roleLabel: "Meine Rolle",
+        role: "Solo-Backend-Entwickler",
+        stackLabel: "Tech-Stack",
+        stack: "Java 17/21 · Spring Boot 3 · Spring Security (JWT) · PostgreSQL · Flyway · Docker",
+        focusLabel: "Schwerpunkt",
+        focus: "REST-API-Design · Sicherheit & RBAC · Integrationstests",
+      },
+      context: {
+        title: "Kontext",
+        text: "Ich wollte eine moderne Spring-Boot-3-Codebasis auf GitHub aufbauen, die typische Enterprise-Backend-Praktiken zeigt: zustandslose Sicherheit, strikte Schemavalidierung mit Flyway, einheitliche Fehlerformate und automatisierte Integrationstests in der CI.",
+      },
+      architecture: {
+        title: "So funktioniert es",
+        text: "Eingehende Anfragen durchlaufen einen zustandslosen JWT-Filter, erreichen versionierte REST-Controller, eine transaktionale Serviceschicht mit RBAC-Prüfungen und schließlich Spring-Data-JPA-Repositories auf PostgreSQL 16.",
+        points: [
+          { label: "API-Schicht", value: "Spring Boot 3, Java Records, OpenAPI 3 / Swagger UI" },
+          { label: "Sicherheit", value: "Spring Security 6, BCrypt, zustandslose JWTs & RBAC" },
+          { label: "Persistenz", value: "PostgreSQL 16, Spring Data JPA, Flyway-Migrationen" },
+          { label: "Qualität", value: "JUnit 5 + MockMvc Integrationstests, GitHub Actions CI" },
+        ],
+      },
+      features: [
+        {
+          title: "JWT & RBAC",
+          text: "Rollen- und eigentumsbasierte Zugriffskontrolle.",
+          items: [
+            "Registrierung und Login mit HMAC-SHA256-JWT-Tokens.",
+            "Methodensicherheit @PreAuthorize('hasRole(ADMIN)') für Löschvorgänge.",
+            "Nur Admins, Ersteller oder zugewiesene Nutzer dürfen Incidents aktualisieren.",
+          ],
+        },
+        {
+          title: "Filterung & Paginierung",
+          text: "Typsichere Abfragen mit JPA Specifications.",
+          items: [
+            "Kombination aus Status-, Prioritäts- und Stichwortfilter (q).",
+            "Begrenzte Seitengrößen und Sortierung nach Erstellungsdatum.",
+            "Endpoint /stats für aggregierte Kennzahlen nach Status und Priorität.",
+          ],
+        },
+        {
+          title: "Migrationen & RFC 7807",
+          text: "Verlässliches Schema und klare Fehlerantworten.",
+          items: [
+            "Versionierte Flyway-SQL-Migrationen mit Hibernate ddl-auto: validate.",
+            "Globaler @RestControllerAdvice mit RFC-7807-ProblemDetail-Antworten.",
+            "Feldgenaue Validierungsfehler bei 400 Bad Request.",
+          ],
+        },
+        {
+          title: "Docker & CI",
+          text: "Reproduzierbarer Stack und automatisierte Prüfungen.",
+          items: [
+            "Multi-Stage-Non-Root-Dockerfile und Docker Compose mit PostgreSQL 16.",
+            "Unit- und MockMvc-Integrationstests für Auth, CRUD, Filter, Kommentare und RBAC.",
+            "GitHub Actions Matrix-Tests auf Java 17 und Java 21 sowie Docker-Build.",
+          ],
+        },
+      ],
+      takeaway: {
+        p1: "Mit diesem Projekt konnte ich Spring Security 6, Flyway und RFC 7807 ProblemDetail in einer klaren Schichtenarchitektur kombinieren.",
+        p2: "Das Repository ist vollständig getestet, auf Englisch mit Swagger UI dokumentiert und per Docker Compose sofort startklar.",
       },
     },
     devopsLab: {

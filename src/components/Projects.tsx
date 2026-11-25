@@ -9,12 +9,13 @@ import dual from "../assets/projects/Dual.webp";
 import askCombakCover from "../assets/projects/Ask Combak/askcombak-cover.webp";
 import mongolingoCover from "../assets/projects/Mongolingo/mongolingo-cover.webp";
 import devopsLabCover from "../assets/projects/DevOps Lab/devops-lab-cover.webp";
+import incidentTrackerCover from "../assets/projects/Incident Tracker/incident-tracker-swagger.webp";
 
 import github from "../assets/icons/github.png";
 import youtube from "../assets/icons/youtube.png";
 
 type ProjectCategory = "web" | "mobile" | "devops";
-type ProjectKey = "firstAid" | "dual" | "askCombak" | "mongolingo" | "devopsLab";
+type ProjectKey = "firstAid" | "dual" | "askCombak" | "mongolingo" | "devopsLab" | "incidentTracker";
 
 interface Project {
   key: ProjectKey;
@@ -27,6 +28,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    key: "incidentTracker",
+    technologies: ["Java 17", "Spring Boot 3", "JWT", "PostgreSQL", "Docker"],
+    repolink: "https://github.com/Marin-Weis/incident-tracker-api",
+    image: incidentTrackerCover,
+    category: "web",
+    caseStudyPath: "/incident-tracker",
+  },
   {
     key: "devopsLab",
     technologies: ["Docker", "Ansible", "Prometheus", "Grafana", "Python"],
