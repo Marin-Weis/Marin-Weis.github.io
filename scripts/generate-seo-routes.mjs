@@ -13,6 +13,15 @@ const baseHtml = fs.readFileSync(baseHtmlPath, "utf-8");
 
 const routes = [
   {
+    slug: "devops-lab",
+    title: "DevOps Monitoring Lab — Docker, Ansible, Prometheus & Grafana | Marin Weis",
+    description:
+      "Étude de cas DevOps Monitoring Lab : service Python déployé avec un playbook Ansible idempotent et supervisé par Prometheus et Grafana (alertes et dashboard as code), par Marin Weis.",
+    heading: "DevOps Monitoring Lab — Ansible, Prometheus & Grafana as Code",
+    summary:
+      "Projet personnel de Marin Weis : un service Python conteneurisé (Flask, Docker) déployé de façon idempotente avec Ansible, supervisé par Prometheus (règles d'alerte) et Grafana (datasource et dashboard provisionnés as code), avec un pipeline GitHub Actions.",
+  },
+  {
     slug: "ask-combak",
     title: "Ask Combak — Assistant Shopping IA Conversationnel (Stage Full-Stack) | Marin Weis",
     description:

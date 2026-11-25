@@ -8,12 +8,13 @@ import secouriste from "../assets/projects/Secouriste.webp";
 import dual from "../assets/projects/Dual.webp";
 import askCombakCover from "../assets/projects/Ask Combak/askcombak-cover.webp";
 import mongolingoCover from "../assets/projects/Mongolingo/mongolingo-cover.webp";
+import devopsLabCover from "../assets/projects/DevOps Lab/devops-lab-cover.webp";
 
 import github from "../assets/icons/github.png";
 import youtube from "../assets/icons/youtube.png";
 
-type ProjectCategory = "web" | "mobile";
-type ProjectKey = "firstAid" | "dual" | "askCombak" | "mongolingo";
+type ProjectCategory = "web" | "mobile" | "devops";
+type ProjectKey = "firstAid" | "dual" | "askCombak" | "mongolingo" | "devopsLab";
 
 interface Project {
   key: ProjectKey;
@@ -26,6 +27,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    key: "devopsLab",
+    technologies: ["Docker", "Ansible", "Prometheus", "Grafana", "Python"],
+    repolink: "https://github.com/Marin-Weis/devops-monitoring-lab",
+    image: devopsLabCover,
+    category: "devops",
+    caseStudyPath: "/devops-lab",
+  },
   {
     key: "askCombak",
     technologies: ["Next.js", "React", "TypeScript", "MongoDB", "Claude"],
@@ -72,6 +81,7 @@ const Projects = () => {
     { label: t.projects.filters.all, value: "all" },
     { label: t.projects.filters.web, value: "web" },
     { label: t.projects.filters.mobile, value: "mobile" },
+    { label: t.projects.filters.devops, value: "devops" },
   ];
 
   const filteredProjects = useMemo(() => {
@@ -140,6 +150,8 @@ const Projects = () => {
                   <span className="badge badge-accent badge-sm absolute left-4 top-4">
                     {project.category === "web"
                       ? t.projects.badges.web
+                      : project.category === "devops"
+                      ? t.projects.badges.devops
                       : t.projects.badges.mobile}
                   </span>
                 </div>

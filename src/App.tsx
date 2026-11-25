@@ -11,6 +11,7 @@ import FirstAidCaseStudy from "./components/FirstAidCaseStudy";
 import DualCaseStudy from "./components/DualCaseStudy";
 import AskCombakCaseStudy from "./components/AskCombakCaseStudy";
 import MongolingoCaseStudy from "./components/MongolingoCaseStudy";
+import DevopsLabCaseStudy from "./components/DevopsLabCaseStudy";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 
@@ -29,6 +30,11 @@ const ROUTE_SEO: Record<string, { title: string; description: string }> = {
     title: "Marin Weis — Développeur Full-Stack, Web & Mobile | Portfolio BUT Informatique Vannes (UBS)",
     description:
       "Portfolio officiel de Marin Weis, étudiant en BUT Informatique à l'IUT de Vannes (Université Bretagne Sud) et développeur Full-Stack Web & Mobile (React, Next.js, TypeScript, Java, Kotlin, SQL, MongoDB).",
+  },
+  "/devops-lab": {
+    title: "DevOps Monitoring Lab — Docker, Ansible, Prometheus & Grafana | Marin Weis",
+    description:
+      "Étude de cas DevOps Monitoring Lab : service Python déployé avec un playbook Ansible idempotent et supervisé par Prometheus et Grafana (alertes et dashboard as code), par Marin Weis.",
   },
   "/ask-combak": {
     title: "Ask Combak — Assistant Shopping IA Conversationnel (Stage Full-Stack) | Marin Weis",
@@ -185,6 +191,14 @@ const RoutedContent = () => {
             element={
               <CaseStudyPage>
                 <MongolingoCaseStudy />
+              </CaseStudyPage>
+            }
+          />
+          <Route
+            path="/devops-lab"
+            element={
+              <CaseStudyPage>
+                <DevopsLabCaseStudy />
               </CaseStudyPage>
             }
           />

@@ -105,8 +105,8 @@ const en = {
       title: "Projects",
       intro:
         "A selection of my recent academic and personal projects. Filter by type to explore web or mobile work.",
-      filters: { all: "All", web: "Web", mobile: "Mobile" },
-      badges: { web: "Web app", mobile: "Mobile app" },
+      filters: { all: "All", web: "Web", mobile: "Mobile", devops: "DevOps" },
+      badges: { web: "Web app", mobile: "Mobile app", devops: "DevOps" },
       buttons: { demo: "Demo", code: "Code", caseStudy: "Case study" },
       items: {
         firstAid: {
@@ -123,6 +123,11 @@ const en = {
           title: "Ask Combak",
           description:
             "An AI-powered conversational shopping assistant built during my internship at Combak (a refurbished-tech comparator). It guides users through a conversation to recommend the right product and the best deals, directly embedded into the website.",
+        },
+        devopsLab: {
+          title: "DevOps Monitoring Lab",
+          description:
+            "A hands-on DevOps lab: a Python service deployed with an idempotent Ansible playbook and monitored by Prometheus and Grafana (alert rules and dashboard provisioned as code), with a GitHub Actions pipeline.",
         },
         mongolingo: {
           title: "Mongolingo",
@@ -488,6 +493,86 @@ const en = {
         p2: "The hardest and most rewarding part was grounding the LLM in real product data, so the assistant gives trustworthy, useful recommendations rather than generic answers.",
       },
     },
+    devopsLab: {
+      title: "DevOps Monitoring Lab",
+      badge: "DevOps · Observability as code · Personal project",
+      heading: "A containerised service deployed with Ansible and monitored with Prometheus and Grafana — all provisioned as code.",
+      intro:
+        "DevOps Monitoring Lab is a personal learning project: a Python service exposing Prometheus metrics, deployed idempotently with an Ansible playbook, and monitored by Prometheus (scraping and alert rules) and Grafana (datasource and dashboard provisioned automatically, no manual UI setup). A single command deploys the whole stack, and a second run changes nothing.",
+      coverAlt: "Grafana dashboard of the DevOps Monitoring Lab",
+      repoButton: "View the repository",
+      meta: {
+        roleLabel: "My role",
+        role: "Solo project (self-training)",
+        stackLabel: "Tech stack",
+        stack: "Docker · Ansible · Prometheus · Grafana · Python (Flask) · GitHub Actions",
+        focusLabel: "Focus",
+        focus: "Automation · Monitoring & alerting · Infrastructure as code",
+      },
+      context: {
+        title: "Context",
+        text: "I wanted to learn how a team automates deployments and keeps a service observable. I built the lab around the questions a DevOps engineer faces daily: how do I deploy the same way every time, how do I know the service is healthy, and how do I get warned before users notice a problem?",
+      },
+      architecture: {
+        title: "How it works",
+        text: "An Ansible playbook builds the application image and starts three containers on a shared Docker network. Prometheus scrapes the service every 5 seconds, evaluates the alert rules, and Grafana queries Prometheus to display the dashboard.",
+        points: [
+          { label: "Service", value: "Flask + gunicorn in Docker, /metrics endpoint" },
+          { label: "Automation", value: "Ansible roles, templates, handlers" },
+          { label: "Metrics & alerts", value: "Prometheus + 3 alert rules" },
+          { label: "Dashboards", value: "Grafana provisioned as code" },
+        ],
+      },
+      features: [
+        {
+          title: "Instrumented service",
+          text: "RED metrics exposed with prometheus_client.",
+          items: [
+            "Request counter by method, endpoint and status code.",
+            "Latency histogram for p50 / p95 / p99.",
+            "In-flight requests gauge and a business counter.",
+            "A chaos endpoint to raise the error rate on demand.",
+          ],
+        },
+        {
+          title: "Idempotent Ansible deployment",
+          text: "Inventory, variables, two roles and handlers.",
+          items: [
+            "Re-running the playbook reports changed=0.",
+            "Prometheus and Grafana restart only when their config changes.",
+            "The Prometheus config is validated with promtool before deployment.",
+            "Ports, image versions and alert thresholds live in group_vars.",
+          ],
+        },
+        {
+          title: "Prometheus alert rules",
+          text: "Rendered from Jinja2 templates.",
+          items: [
+            "AppDown when the service stops answering the scrape.",
+            "HighErrorRate when more than 10 % of responses are 5xx.",
+            "HighLatencyP95 when the p95 latency exceeds 0.5 s.",
+          ],
+        },
+        {
+          title: "Grafana as code",
+          text: "No manual configuration in the interface.",
+          items: [
+            "Prometheus datasource provisioned from a template.",
+            "Dashboard JSON generated by a script and versioned.",
+            "Panels for throughput, errors, latency, jobs, uptime and active alerts.",
+          ],
+        },
+      ],
+      alerting: {
+        title: "Alerting in action",
+        text: "Forcing 60 % of errors on the service and generating traffic moves the HighErrorRate rule from pending to firing, as shown below in Prometheus.",
+        alt: "Prometheus alerts page with HighErrorRate firing",
+      },
+      takeaway: {
+        p1: "This project taught me to treat deployment and monitoring as code: reproducible, reviewable and testable. The repository is documented step by step and has a GitHub Actions pipeline running tests, linters and a Prometheus configuration check.",
+        p2: "The most instructive part was making the playbook truly idempotent and validating the configuration before it reaches the running services — and seeing an alert go from pending to firing on a metric I had instrumented myself.",
+      },
+    },
     mongolingo: {
       title: "Mongolingo",
       badge: "Web app · Education · School project (R4.03)",
@@ -670,8 +755,8 @@ const fr: Dict = {
       title: "Projets",
       intro:
         "Une sélection de mes projets académiques et personnels récents. Filtrez par type pour explorer mes travaux web ou mobiles.",
-      filters: { all: "Tous", web: "Web", mobile: "Mobile" },
-      badges: { web: "Application web", mobile: "Application mobile" },
+      filters: { all: "Tous", web: "Web", mobile: "Mobile", devops: "DevOps" },
+      badges: { web: "Application web", mobile: "Application mobile", devops: "DevOps" },
       buttons: { demo: "Démo", code: "Code", caseStudy: "Étude de cas" },
       items: {
         firstAid: {
@@ -688,6 +773,11 @@ const fr: Dict = {
           title: "Ask Combak",
           description:
             "Un assistant d'achat conversationnel propulsé par l'IA, réalisé pendant mon stage chez Combak (comparateur de high-tech reconditionné). Il guide l'utilisateur via une conversation pour recommander le bon produit et les meilleures offres, directement intégré au site.",
+        },
+        devopsLab: {
+          title: "DevOps Monitoring Lab",
+          description:
+            "Un lab DevOps concret : un service Python déployé par un playbook Ansible idempotent et supervisé par Prometheus et Grafana (règles d'alerte et dashboard provisionnés as code), avec un pipeline GitHub Actions.",
         },
         mongolingo: {
           title: "Mongolingo",
@@ -1053,6 +1143,86 @@ const fr: Dict = {
         p2: "La partie la plus difficile et la plus gratifiante a été d'ancrer le LLM dans de vraies données produits, pour que l'assistant donne des recommandations fiables et utiles, et non des réponses génériques.",
       },
     },
+    devopsLab: {
+      title: "DevOps Monitoring Lab",
+      badge: "DevOps · Observabilité as code · Projet personnel",
+      heading: "Un service conteneurisé déployé avec Ansible et supervisé par Prometheus et Grafana — le tout provisionné as code.",
+      intro:
+        "DevOps Monitoring Lab est un projet personnel d'apprentissage : un service Python qui expose des métriques Prometheus, déployé de façon idempotente par un playbook Ansible, et supervisé par Prometheus (collecte et règles d'alerte) et Grafana (datasource et dashboard provisionnés automatiquement, sans configuration manuelle dans l'interface). Une seule commande déploie toute la stack, et un second passage ne modifie rien.",
+      coverAlt: "Dashboard Grafana du DevOps Monitoring Lab",
+      repoButton: "Voir le dépôt",
+      meta: {
+        roleLabel: "Mon rôle",
+        role: "Projet en solo (auto-formation)",
+        stackLabel: "Stack technique",
+        stack: "Docker · Ansible · Prometheus · Grafana · Python (Flask) · GitHub Actions",
+        focusLabel: "Focus",
+        focus: "Automatisation · Monitoring & alerting · Infrastructure as code",
+      },
+      context: {
+        title: "Contexte",
+        text: "Je voulais comprendre comment une équipe automatise ses déploiements et garde un service observable. J'ai construit le lab autour des questions qu'un ingénieur DevOps se pose au quotidien : comment déployer de la même façon à chaque fois, comment savoir que le service est en bonne santé, et comment être prévenu avant que les utilisateurs ne s'en aperçoivent ?",
+      },
+      architecture: {
+        title: "Comment ça marche",
+        text: "Un playbook Ansible construit l'image de l'application et démarre trois conteneurs sur un réseau Docker commun. Prometheus collecte le service toutes les 5 secondes et évalue les règles d'alerte, puis Grafana interroge Prometheus pour afficher le dashboard.",
+        points: [
+          { label: "Service", value: "Flask + gunicorn dans Docker, endpoint /metrics" },
+          { label: "Automatisation", value: "Rôles Ansible, templates, handlers" },
+          { label: "Métriques & alertes", value: "Prometheus + 3 règles d'alerte" },
+          { label: "Dashboards", value: "Grafana provisionné as code" },
+        ],
+      },
+      features: [
+        {
+          title: "Service instrumenté",
+          text: "Métriques RED exposées avec prometheus_client.",
+          items: [
+            "Compteur de requêtes par méthode, endpoint et code HTTP.",
+            "Histogramme de latence pour les p50 / p95 / p99.",
+            "Jauge de requêtes en cours et compteur métier.",
+            "Un endpoint de chaos pour faire monter le taux d'erreurs à la demande.",
+          ],
+        },
+        {
+          title: "Déploiement Ansible idempotent",
+          text: "Inventaire, variables, deux rôles et handlers.",
+          items: [
+            "Relancer le playbook donne changed=0.",
+            "Prometheus et Grafana ne redémarrent que si leur configuration change.",
+            "La configuration Prometheus est validée avec promtool avant déploiement.",
+            "Ports, versions d'images et seuils d'alerte sont dans group_vars.",
+          ],
+        },
+        {
+          title: "Règles d'alerte Prometheus",
+          text: "Générées à partir de templates Jinja2.",
+          items: [
+            "AppDown quand le service ne répond plus à la collecte.",
+            "HighErrorRate quand plus de 10 % des réponses sont des 5xx.",
+            "HighLatencyP95 quand la latence p95 dépasse 0,5 s.",
+          ],
+        },
+        {
+          title: "Grafana as code",
+          text: "Aucune configuration manuelle dans l'interface.",
+          items: [
+            "Datasource Prometheus provisionnée depuis un template.",
+            "JSON du dashboard généré par un script et versionné.",
+            "Panneaux de débit, erreurs, latence, jobs, disponibilité et alertes actives.",
+          ],
+        },
+      ],
+      alerting: {
+        title: "L'alerte en action",
+        text: "Forcer 60 % d'erreurs sur le service et générer du trafic fait passer la règle HighErrorRate de pending à firing, comme on le voit ci-dessous dans Prometheus.",
+        alt: "Page des alertes Prometheus avec HighErrorRate en firing",
+      },
+      takeaway: {
+        p1: "Ce projet m'a appris à traiter le déploiement et le monitoring comme du code : reproductibles, relisibles et testables. Le dépôt est documenté pas à pas et dispose d'un pipeline GitHub Actions qui lance les tests, les linters et une vérification de la configuration Prometheus.",
+        p2: "Le plus instructif a été de rendre le playbook réellement idempotent et de valider la configuration avant qu'elle n'atteigne les services en cours d'exécution — et de voir une alerte passer de pending à firing sur une métrique que j'avais instrumentée moi-même.",
+      },
+    },
     mongolingo: {
       title: "Mongolingo",
       badge: "Application web · Pédagogie · Projet R4.03",
@@ -1233,8 +1403,8 @@ const de: Dict = {
       title: "Projekte",
       intro:
         "Eine Auswahl meiner aktuellen akademischen und persönlichen Projekte. Filtern Sie nach Typ, um Web- oder Mobile-Arbeiten zu entdecken.",
-      filters: { all: "Alle", web: "Web", mobile: "Mobile" },
-      badges: { web: "Web-App", mobile: "Mobile-App" },
+      filters: { all: "Alle", web: "Web", mobile: "Mobile", devops: "DevOps" },
+      badges: { web: "Web-App", mobile: "Mobile-App", devops: "DevOps" },
       buttons: { demo: "Demo", code: "Code", caseStudy: "Fallstudie" },
       items: {
         firstAid: {
@@ -1251,6 +1421,11 @@ const de: Dict = {
           title: "Ask Combak",
           description:
             "Ein KI-gestützter dialogbasierter Einkaufsassistent, entwickelt während meines Praktikums bei Combak (Vergleichsportal für refurbished Technik). Er führt Nutzer durch ein Gespräch, um das passende Produkt und die besten Angebote zu empfehlen — direkt in die Website integriert.",
+        },
+        devopsLab: {
+          title: "DevOps Monitoring Lab",
+          description:
+            "Ein praxisnahes DevOps-Lab: ein Python-Dienst, per idempotentem Ansible-Playbook bereitgestellt und mit Prometheus und Grafana überwacht (Alarmregeln und Dashboard als Code provisioniert), mit GitHub-Actions-Pipeline.",
         },
         mongolingo: {
           title: "Mongolingo",
@@ -1614,6 +1789,86 @@ const de: Dict = {
       takeaway: {
         p1: "Dieses Praktikum hat mir beigebracht, ein echtes, produktionsreifes KI-Feature von A bis Z zu bauen — von der Frontend-UX über die API und die Daten bis zum Prompt-Engineering.",
         p2: "Am schwierigsten und lohnendsten war es, das LLM in echten Produktdaten zu verankern, damit der Assistent vertrauenswürdige, nützliche Empfehlungen gibt statt generischer Antworten.",
+      },
+    },
+    devopsLab: {
+      title: "DevOps Monitoring Lab",
+      badge: "DevOps · Observability as Code · Privatprojekt",
+      heading: "Ein containerisierter Dienst, mit Ansible bereitgestellt und mit Prometheus und Grafana überwacht — alles als Code provisioniert.",
+      intro:
+        "DevOps Monitoring Lab ist ein persönliches Lernprojekt: ein Python-Dienst, der Prometheus-Metriken bereitstellt, idempotent per Ansible-Playbook ausgerollt und von Prometheus (Erfassung und Alarmregeln) sowie Grafana (automatisch provisionierte Datenquelle und Dashboard, ohne manuelle Konfiguration in der Oberfläche) überwacht wird. Ein einziger Befehl rollt den gesamten Stack aus, ein zweiter Durchlauf ändert nichts.",
+      coverAlt: "Grafana-Dashboard des DevOps Monitoring Lab",
+      repoButton: "Repository ansehen",
+      meta: {
+        roleLabel: "Meine Rolle",
+        role: "Einzelprojekt (Selbststudium)",
+        stackLabel: "Tech-Stack",
+        stack: "Docker · Ansible · Prometheus · Grafana · Python (Flask) · GitHub Actions",
+        focusLabel: "Schwerpunkt",
+        focus: "Automatisierung · Monitoring & Alerting · Infrastructure as Code",
+      },
+      context: {
+        title: "Kontext",
+        text: "Ich wollte verstehen, wie ein Team Deployments automatisiert und einen Dienst beobachtbar hält. Das Lab dreht sich um Fragen, die sich DevOps-Ingenieure täglich stellen: Wie stelle ich jedes Mal gleich bereit, woran erkenne ich, dass der Dienst gesund ist, und wie werde ich gewarnt, bevor Nutzer ein Problem bemerken?",
+      },
+      architecture: {
+        title: "So funktioniert es",
+        text: "Ein Ansible-Playbook baut das Anwendungs-Image und startet drei Container in einem gemeinsamen Docker-Netzwerk. Prometheus erfasst den Dienst alle 5 Sekunden und wertet die Alarmregeln aus, Grafana fragt Prometheus ab und zeigt das Dashboard an.",
+        points: [
+          { label: "Dienst", value: "Flask + gunicorn in Docker, /metrics-Endpunkt" },
+          { label: "Automatisierung", value: "Ansible-Rollen, Templates, Handler" },
+          { label: "Metriken & Alarme", value: "Prometheus + 3 Alarmregeln" },
+          { label: "Dashboards", value: "Grafana als Code provisioniert" },
+        ],
+      },
+      features: [
+        {
+          title: "Instrumentierter Dienst",
+          text: "RED-Metriken mit prometheus_client.",
+          items: [
+            "Anfragezähler nach Methode, Endpunkt und Statuscode.",
+            "Latenz-Histogramm für p50 / p95 / p99.",
+            "Gauge für laufende Anfragen und ein Business-Zähler.",
+            "Ein Chaos-Endpunkt, um die Fehlerrate bei Bedarf zu erhöhen.",
+          ],
+        },
+        {
+          title: "Idempotentes Ansible-Deployment",
+          text: "Inventar, Variablen, zwei Rollen und Handler.",
+          items: [
+            "Ein erneuter Playbook-Lauf meldet changed=0.",
+            "Prometheus und Grafana starten nur neu, wenn sich ihre Konfiguration ändert.",
+            "Die Prometheus-Konfiguration wird vor dem Deployment mit promtool validiert.",
+            "Ports, Image-Versionen und Alarmschwellen liegen in group_vars.",
+          ],
+        },
+        {
+          title: "Prometheus-Alarmregeln",
+          text: "Aus Jinja2-Templates erzeugt.",
+          items: [
+            "AppDown, wenn der Dienst die Erfassung nicht mehr beantwortet.",
+            "HighErrorRate, wenn mehr als 10 % der Antworten 5xx sind.",
+            "HighLatencyP95, wenn die p95-Latenz 0,5 s überschreitet.",
+          ],
+        },
+        {
+          title: "Grafana als Code",
+          text: "Keine manuelle Konfiguration in der Oberfläche.",
+          items: [
+            "Prometheus-Datenquelle aus einem Template provisioniert.",
+            "Dashboard-JSON von einem Skript erzeugt und versioniert.",
+            "Panels für Durchsatz, Fehler, Latenz, Jobs, Verfügbarkeit und aktive Alarme.",
+          ],
+        },
+      ],
+      alerting: {
+        title: "Alarmierung in Aktion",
+        text: "Werden 60 % Fehler erzwungen und Traffic erzeugt, wechselt die Regel HighErrorRate von pending zu firing, wie unten in Prometheus zu sehen.",
+        alt: "Prometheus-Alarmseite mit HighErrorRate im Zustand firing",
+      },
+      takeaway: {
+        p1: "Dieses Projekt hat mir gezeigt, Deployment und Monitoring als Code zu behandeln: reproduzierbar, prüfbar und testbar. Das Repository ist Schritt für Schritt dokumentiert und besitzt eine GitHub-Actions-Pipeline mit Tests, Lintern und einer Prüfung der Prometheus-Konfiguration.",
+        p2: "Am lehrreichsten war es, das Playbook wirklich idempotent zu machen und die Konfiguration zu validieren, bevor sie die laufenden Dienste erreicht — und einen Alarm von pending zu firing wechseln zu sehen, ausgelöst durch eine selbst instrumentierte Metrik.",
       },
     },
     mongolingo: {
