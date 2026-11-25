@@ -17,6 +17,7 @@
 - **Langues** : Français (Natif), Anglais (Professionnel/Technique), Allemand.
 
 ## Études de Cas & Projets Phares
+- [DevOps Monitoring Lab — Ansible, Prometheus & Grafana as Code](https://marin-weis.github.io/devops-lab) : Projet personnel DevOps : service Python conteneurisé déployé avec un playbook Ansible idempotent et supervisé par Prometheus et Grafana (règles d'alerte et dashboard as code), pipeline GitHub Actions.
 - [Ask Combak — Assistant Shopping IA Conversationnel](https://marin-weis.github.io/ask-combak) : Assistant IA intégré au comparateur de produits reconditionnés Combak (Next.js, React, TypeScript, Claude AI, Analytics).
 - [Mongolingo — Plateforme Interactive d'Apprentissage MongoDB & NoSQL](https://marin-weis.github.io/mongolingo) : Application web style Duolingo avec 30 défis progressifs exécutés en temps réel sur MongoDB, explorateur de collections et import/export JSON/BSON.
 - [Dual Application — Application Android d'Évaluation Biathlon EPS](https://marin-weis.github.io/dual) : Application mobile Android (Kotlin) hors-ligne développée avec l'IUT de Vannes et le Collège Notre-Dame-La-Blanche pour gérer les performances élèves en temps réel.
