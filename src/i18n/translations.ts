@@ -124,6 +124,11 @@ const en = {
           description:
             "An AI-powered conversational shopping assistant built during my internship at Combak (a refurbished-tech comparator). It guides users through a conversation to recommend the right product and the best deals, directly embedded into the website.",
         },
+        iotAnomaly: {
+          title: "IoT Anomaly Pipeline",
+          description:
+            "End-to-end IoT time-series anomaly detection pipeline in Python: Pydantic v2 validation, Pandas rolling features, Scikit-learn Isolation Forest, DuckDB SQL storage, FastAPI, and visual reports.",
+        },
         incidentTracker: {
           title: "Incident Tracker API",
           description:
@@ -498,6 +503,79 @@ const en = {
         p2: "The hardest and most rewarding part was grounding the LLM in real product data, so the assistant gives trustworthy, useful recommendations rather than generic answers.",
       },
     },
+    iotAnomaly: {
+      title: "IoT Anomaly Pipeline",
+      badge: "Data & ML · Python / Scikit-learn / DuckDB · Personal project",
+      heading: "An end-to-end IoT time-series anomaly detection pipeline with strict validation, Isolation Forest ML scoring, DuckDB SQL storage, and FastAPI.",
+      intro:
+        "IoT Anomaly Pipeline is a personal Data & ML project built in Python. It ingests flow-counter and sensor time-series, validates payloads with Pydantic v2, engineers rolling and cyclic temporal features in Pandas, scores anomalies with a Scikit-learn Isolation Forest, persists predictions in DuckDB, and generates visual anomaly reports.",
+      coverAlt: "IoT Anomaly Detection visual report showing sensor readings, rolling baseline, and flagged anomalies",
+      repoButton: "View the repository",
+      meta: {
+        roleLabel: "My role",
+        role: "Solo ML & Data engineer",
+        stackLabel: "Tech stack",
+        stack: "Python · FastAPI · Scikit-learn · Pandas · DuckDB · Docker",
+        focusLabel: "Focus",
+        focus: "Time-series ML · Data validation · Analytical SQL",
+      },
+      context: {
+        title: "Context",
+        text: "As part of my AI specialization, I wanted a concrete Data/ML engineering project beyond LLMs: handling noisy sensor streams, validating incoming batches strictly, detecting spikes and dropouts automatically, and exposing clean SQL summaries via an API.",
+      },
+      architecture: {
+        title: "How it works",
+        text: "Incoming sensor batches are validated with Pydantic v2, enriched with recent DuckDB history to compute rolling statistics, scored by a StandardScaler + IsolationForest pipeline, and stored back into DuckDB.",
+        points: [
+          { label: "Ingestion & API", value: "FastAPI + Pydantic v2 strict bounds & finite checks" },
+          { label: "Feature Engineering", value: "Pandas rolling mean/std, z-score, delta, cyclic hour" },
+          { label: "ML Scoring", value: "Scikit-learn StandardScaler + IsolationForest (joblib)" },
+          { label: "SQL & Reporting", value: "Embedded DuckDB analytics + Matplotlib PNG reports" },
+        ],
+      },
+      features: [
+        {
+          title: "Strict Payload Validation",
+          text: "Bad telemetry never reaches the model.",
+          items: [
+            "Pydantic v2 enforces sensor ID patterns, battery/RSSI bounds, and finite values.",
+            "Invalid or negative readings fail fast with HTTP 422.",
+            "Batch ingestion endpoint supports up to 10,000 readings per request.",
+          ],
+        },
+        {
+          title: "Time-Series Feature Engineering",
+          text: "Context-aware scoring across diurnal cycles.",
+          items: [
+            "6-step rolling mean, rolling standard deviation, local z-score, and delta.",
+            "Cyclic hour-of-day encodings (hour_sin, hour_cos) to capture daily peaks.",
+            "Fetches recent per-sensor history from DuckDB so rolling windows stay accurate.",
+          ],
+        },
+        {
+          title: "Isolation Forest & Severity",
+          text: "Unsupervised detection without labelled anomalies.",
+          items: [
+            "Trained on clean 14-day diurnal baseline telemetry.",
+            "Outputs continuous anomaly scores and classifies NORMAL, WARNING, or CRITICAL.",
+            "Supports runtime retraining via POST /api/v1/train.",
+          ],
+        },
+        {
+          title: "DuckDB SQL & Visual Reports",
+          text: "Query anomalies and inspect spikes visually.",
+          items: [
+            "Idempotent INSERT OR REPLACE storage in embedded DuckDB.",
+            "SQL summary endpoint returning total readings, anomaly rate, avg, and max.",
+            "Automated Matplotlib dark-theme report highlighting flagged spikes and decision boundary.",
+          ],
+        },
+      ],
+      takeaway: {
+        p1: "This project let me connect data validation, time-series feature engineering, unsupervised ML, and analytical SQL in a lightweight, production-ready Python service.",
+        p2: "Everything is tested with pytest, linted with ruff, containerised with Docker, and verified end to end in GitHub Actions CI.",
+      },
+    },
     incidentTracker: {
       title: "Incident Tracker API",
       badge: "Backend · Java / Spring Boot 3 · Personal project",
@@ -851,6 +929,11 @@ const fr: Dict = {
           title: "Ask Combak",
           description:
             "Un assistant d'achat conversationnel propulsé par l'IA, réalisé pendant mon stage chez Combak (comparateur de high-tech reconditionné). Il guide l'utilisateur via une conversation pour recommander le bon produit et les meilleures offres, directement intégré au site.",
+        },
+        iotAnomaly: {
+          title: "IoT Anomaly Pipeline",
+          description:
+            "Pipeline complet de détection d'anomalies IoT en Python : validation Pydantic v2, features temporelles Pandas, Scikit-learn Isolation Forest, SQL DuckDB, FastAPI et rapports visuels.",
         },
         incidentTracker: {
           title: "Incident Tracker API",
@@ -1226,6 +1309,79 @@ const fr: Dict = {
         p2: "La partie la plus difficile et la plus gratifiante a été d'ancrer le LLM dans de vraies données produits, pour que l'assistant donne des recommandations fiables et utiles, et non des réponses génériques.",
       },
     },
+    iotAnomaly: {
+      title: "IoT Anomaly Pipeline",
+      badge: "Data & ML · Python / Scikit-learn / DuckDB · Projet personnel",
+      heading: "Un pipeline complet de détection d'anomalies sur séries temporelles IoT : validation stricte, Isolation Forest, SQL DuckDB et FastAPI.",
+      intro:
+        "IoT Anomaly Pipeline est un projet personnel Data & ML développé en Python. Il ingère des séries temporelles de compteurs de flux et capteurs, valide strictement les données avec Pydantic v2, calcule des features glissantes et cycliques avec Pandas, détecte les anomalies via Scikit-learn (Isolation Forest), stocke les résultats dans DuckDB et génère un rapport visuel Matplotlib.",
+      coverAlt: "Rapport visuel IoT Anomaly Detection montrant les mesures capteur, la moyenne glissante et les anomalies détectées",
+      repoButton: "Voir le dépôt",
+      meta: {
+        roleLabel: "Mon rôle",
+        role: "Ingénieur Data & ML (projet solo)",
+        stackLabel: "Stack technique",
+        stack: "Python · FastAPI · Scikit-learn · Pandas · DuckDB · Docker",
+        focusLabel: "Focus",
+        focus: "ML séries temporelles · Validation de données · SQL analytique",
+      },
+      context: {
+        title: "Contexte",
+        text: "En complément de mes projets LLM, je voulais un projet concret d'ingénierie Data et Machine Learning classique : traiter des flux capteurs bruités, valider strictement les lots entrants, repérer automatiquement pics et coupures, et exposer des agrégats SQL via une API.",
+      },
+      architecture: {
+        title: "Comment ça marche",
+        text: "Les lots entrants sont validés par Pydantic v2, enrichis avec l'historique récent stocké dans DuckDB pour calculer les fenêtres glissantes, scorés par un pipeline StandardScaler + IsolationForest, puis persistés en SQL.",
+        points: [
+          { label: "Ingestion & API", value: "FastAPI + Pydantic v2 (bornes strictes et valeurs finies)" },
+          { label: "Feature Engineering", value: "Moyenne/écart-type glissants, z-score, delta, heure cyclique" },
+          { label: "Scoring ML", value: "Scikit-learn StandardScaler + IsolationForest (joblib)" },
+          { label: "SQL & Rapport", value: "Base analytique DuckDB + graphiques Matplotlib" },
+        ],
+      },
+      features: [
+        {
+          title: "Validation stricte des données",
+          text: "Aucune donnée aberrante n'atteint le modèle.",
+          items: [
+            "Pydantic v2 vérifie le format d'ID capteur, batterie/RSSI et valeurs finies.",
+            "Les mesures négatives ou invalides sont rejetées immédiatement en HTTP 422.",
+            "L'endpoint d'ingestion accepte jusqu'à 10 000 mesures par lot.",
+          ],
+        },
+        {
+          title: "Features sur séries temporelles",
+          text: "Tenir compte des cycles journaliers.",
+          items: [
+            "Moyenne et écart-type glissants sur 6 pas, z-score local et delta.",
+            "Encodage cyclique de l'heure (hour_sin, hour_cos) pour les pics matin/soir.",
+            "Récupération de l'historique récent dans DuckDB pour préserver le contexte glissant.",
+          ],
+        },
+        {
+          title: "Isolation Forest & Sévérité",
+          text: "Détection non supervisée sans jeu labellisé.",
+          items: [
+            "Entraîné sur 14 jours de télémétrie diurne propre.",
+            "Calcule un score d'anomalie continu et classe en NORMAL, WARNING ou CRITICAL.",
+            "Ré-entraînement à la demande via POST /api/v1/train.",
+          ],
+        },
+        {
+          title: "SQL DuckDB & Rapport visuel",
+          text: "Requêter les anomalies et visualiser les pics.",
+          items: [
+            "Stockage idempotent INSERT OR REPLACE dans DuckDB.",
+            "Endpoint de synthèse SQL (total, taux d'anomalies, moyenne, maximum).",
+            "Génération automatique d'un graphique Matplotlib avec seuil de décision.",
+          ],
+        },
+      ],
+      takeaway: {
+        p1: "Ce projet m'a permis de relier validation de données, feature engineering temporel, Machine Learning non supervisé et SQL analytique dans un service Python léger.",
+        p2: "L'ensemble est couvert par des tests pytest, vérifié avec ruff, conteneurisé avec Docker et testé de bout en bout dans la CI GitHub Actions.",
+      },
+    },
     incidentTracker: {
       title: "Incident Tracker API",
       badge: "Backend · Java / Spring Boot 3 · Projet personnel",
@@ -1577,6 +1733,11 @@ const de: Dict = {
           title: "Ask Combak",
           description:
             "Ein KI-gestützter dialogbasierter Einkaufsassistent, entwickelt während meines Praktikums bei Combak (Vergleichsportal für refurbished Technik). Er führt Nutzer durch ein Gespräch, um das passende Produkt und die besten Angebote zu empfehlen — direkt in die Website integriert.",
+        },
+        iotAnomaly: {
+          title: "IoT Anomaly Pipeline",
+          description:
+            "End-to-End-Pipeline zur IoT-Anomalieerkennung in Python: Pydantic-v2-Validierung, Pandas-Zeitreihen-Features, Scikit-learn Isolation Forest, DuckDB-SQL, FastAPI und visuelle Berichte.",
         },
         incidentTracker: {
           title: "Incident Tracker API",
@@ -1950,6 +2111,79 @@ const de: Dict = {
       takeaway: {
         p1: "Dieses Praktikum hat mir beigebracht, ein echtes, produktionsreifes KI-Feature von A bis Z zu bauen — von der Frontend-UX über die API und die Daten bis zum Prompt-Engineering.",
         p2: "Am schwierigsten und lohnendsten war es, das LLM in echten Produktdaten zu verankern, damit der Assistent vertrauenswürdige, nützliche Empfehlungen gibt statt generischer Antworten.",
+      },
+    },
+    iotAnomaly: {
+      title: "IoT Anomaly Pipeline",
+      badge: "Data & ML · Python / Scikit-learn / DuckDB · Privatprojekt",
+      heading: "Eine End-to-End-Pipeline zur Anomalieerkennung auf IoT-Zeitreihen mit strikter Validierung, Isolation Forest, DuckDB und FastAPI.",
+      intro:
+        "IoT Anomaly Pipeline ist ein persönliches Data- & ML-Projekt in Python. Es erfasst Zeitreihen von Durchfluss- und IoT-Sensoren, validiert Payloads mit Pydantic v2, berechnet gleitende und zyklische Features mit Pandas, bewertet Anomalien mit Scikit-learn Isolation Forest, speichert Ergebnisse in DuckDB und erzeugt visuelle Matplotlib-Berichte.",
+      coverAlt: "Visueller IoT-Anomaliebericht mit Sensordaten, gleitendem Mittelwert und markierten Ausreißern",
+      repoButton: "Repository ansehen",
+      meta: {
+        roleLabel: "Meine Rolle",
+        role: "Solo Data & ML Engineer",
+        stackLabel: "Tech-Stack",
+        stack: "Python · FastAPI · Scikit-learn · Pandas · DuckDB · Docker",
+        focusLabel: "Schwerpunkt",
+        focus: "Zeitreihen-ML · Datenvalidierung · Analytisches SQL",
+      },
+      context: {
+        title: "Kontext",
+        text: "Neben meinen LLM-Projekten wollte ich ein konkretes Data- & ML-Projekt umsetzen: verrauschte Sensordatenströme strikt validieren, Ausreißer und Ausfälle automatisch erkennen und SQL-Auswertungen über eine API bereitstellen.",
+      },
+      architecture: {
+        title: "So funktioniert es",
+        text: "Eingehende Sensor-Batches werden per Pydantic v2 validiert, mit aktuellen Werten aus DuckDB für gleitende Fenster ergänzt, von einer StandardScaler + IsolationForest-Pipeline bewertet und in DuckDB gespeichert.",
+        points: [
+          { label: "Ingestion & API", value: "FastAPI + Pydantic v2 mit strikten Wertebereichen" },
+          { label: "Feature Engineering", value: "Gleitender Mittelwert/Std, Z-Score, Delta, zyklische Stunde" },
+          { label: "ML-Scoring", value: "Scikit-learn StandardScaler + IsolationForest (joblib)" },
+          { label: "SQL & Reporting", value: "Eingebettetes DuckDB + Matplotlib-Bericht" },
+        ],
+      },
+      features: [
+        {
+          title: "Strikte Validierung",
+          text: "Fehlerhafte Messwerte erreichen das Modell nicht.",
+          items: [
+            "Pydantic v2 prüft Sensor-IDs, Batterie/RSSI und endliche Werte.",
+            "Ungültige oder negative Werte werden sofort mit HTTP 422 abgelehnt.",
+            "Batch-Endpunkt unterstützt bis zu 10.000 Messwerte pro Anfrage.",
+          ],
+        },
+        {
+          title: "Zeitreihen-Features",
+          text: "Tageszyklen sauber berücksichtigen.",
+          items: [
+            "Gleitender 6-Schritte-Mittelwert, Standardabweichung, Z-Score und Delta.",
+            "Zyklische Stundenkodierung (hour_sin, hour_cos) für Tagesprofile.",
+            "Lädt aktuelle Sensorhistorie aus DuckDB für konsistente Fenster.",
+          ],
+        },
+        {
+          title: "Isolation Forest & Schweregrad",
+          text: "Unüberwachte Erkennung ohne Labels.",
+          items: [
+            "Trainiert auf 14 Tagen sauberer Tages-Telemetrie.",
+            "Liefert kontinuierliche Scores und klassifiziert NORMAL, WARNING oder CRITICAL.",
+            "Neues Training jederzeit über POST /api/v1/train möglich.",
+          ],
+        },
+        {
+          title: "DuckDB SQL & Berichte",
+          text: "Anomalien abfragen und visuell prüfen.",
+          items: [
+            "Idempotente Speicherung per INSERT OR REPLACE in DuckDB.",
+            "SQL-Zusammenfassung pro Sensor (Anzahl, Anomalierate, Durchschnitt, Max).",
+            "Automatischer Matplotlib-Report mit Entscheidungsgrenze.",
+          ],
+        },
+      ],
+      takeaway: {
+        p1: "Mit diesem Projekt konnte ich Datenvalidierung, Zeitreihen-Features, unüberwachtes ML und analytisches SQL in einem kompakten Python-Service verbinden.",
+        p2: "Alles ist mit pytest getestet, mit ruff geprüft, in Docker verpackt und über GitHub Actions CI abgesichert.",
       },
     },
     incidentTracker: {

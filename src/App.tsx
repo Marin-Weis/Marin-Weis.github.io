@@ -13,6 +13,7 @@ import AskCombakCaseStudy from "./components/AskCombakCaseStudy";
 import MongolingoCaseStudy from "./components/MongolingoCaseStudy";
 import DevopsLabCaseStudy from "./components/DevopsLabCaseStudy";
 import IncidentTrackerCaseStudy from "./components/IncidentTrackerCaseStudy";
+import IotAnomalyCaseStudy from "./components/IotAnomalyCaseStudy";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 
@@ -31,6 +32,11 @@ const ROUTE_SEO: Record<string, { title: string; description: string }> = {
     title: "Marin Weis — Développeur Full-Stack, Web & Mobile | Portfolio BUT Informatique Vannes (UBS)",
     description:
       "Portfolio officiel de Marin Weis, étudiant en BUT Informatique à l'IUT de Vannes (Université Bretagne Sud) et développeur Full-Stack Web & Mobile (React, Next.js, TypeScript, Java, Kotlin, SQL, MongoDB).",
+  },
+  "/iot-anomaly-pipeline": {
+    title: "IoT Anomaly Pipeline — Python, Scikit-learn, DuckDB & FastAPI | Marin Weis",
+    description:
+      "Étude de cas IoT Anomaly Pipeline : détection d'anomalies sur séries temporelles IoT avec Pydantic v2, Pandas, Scikit-learn Isolation Forest, DuckDB SQL et FastAPI.",
   },
   "/incident-tracker": {
     title: "Incident Tracker API — Java / Spring Boot 3, JWT & PostgreSQL | Marin Weis",
@@ -213,6 +219,14 @@ const RoutedContent = () => {
             element={
               <CaseStudyPage>
                 <IncidentTrackerCaseStudy />
+              </CaseStudyPage>
+            }
+          />
+          <Route
+            path="/iot-anomaly-pipeline"
+            element={
+              <CaseStudyPage>
+                <IotAnomalyCaseStudy />
               </CaseStudyPage>
             }
           />

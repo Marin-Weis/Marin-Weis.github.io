@@ -10,12 +10,13 @@ import askCombakCover from "../assets/projects/Ask Combak/askcombak-cover.webp";
 import mongolingoCover from "../assets/projects/Mongolingo/mongolingo-cover.webp";
 import devopsLabCover from "../assets/projects/DevOps Lab/devops-lab-cover.webp";
 import incidentTrackerCover from "../assets/projects/Incident Tracker/incident-tracker-swagger.webp";
+import iotAnomalyCover from "../assets/projects/IoT Anomaly/iot-anomaly-report.webp";
 
 import github from "../assets/icons/github.png";
 import youtube from "../assets/icons/youtube.png";
 
 type ProjectCategory = "web" | "mobile" | "devops";
-type ProjectKey = "firstAid" | "dual" | "askCombak" | "mongolingo" | "devopsLab" | "incidentTracker";
+type ProjectKey = "firstAid" | "dual" | "askCombak" | "mongolingo" | "devopsLab" | "incidentTracker" | "iotAnomaly";
 
 interface Project {
   key: ProjectKey;
@@ -28,6 +29,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    key: "iotAnomaly",
+    technologies: ["Python", "FastAPI", "Scikit-learn", "DuckDB", "Docker"],
+    repolink: "https://github.com/Marin-Weis/iot-anomaly-pipeline",
+    image: iotAnomalyCover,
+    category: "web",
+    caseStudyPath: "/iot-anomaly-pipeline",
+  },
   {
     key: "incidentTracker",
     technologies: ["Java 17", "Spring Boot 3", "JWT", "PostgreSQL", "Docker"],

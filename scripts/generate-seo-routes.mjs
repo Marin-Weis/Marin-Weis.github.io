@@ -13,6 +13,15 @@ const baseHtml = fs.readFileSync(baseHtmlPath, "utf-8");
 
 const routes = [
   {
+    slug: "iot-anomaly-pipeline",
+    title: "IoT Anomaly Pipeline — Python, Scikit-learn, DuckDB & FastAPI | Marin Weis",
+    description:
+      "Étude de cas IoT Anomaly Pipeline : détection d'anomalies sur séries temporelles IoT avec Pydantic v2, Pandas, Scikit-learn Isolation Forest, DuckDB SQL et FastAPI.",
+    heading: "IoT Anomaly Pipeline — Scikit-learn, DuckDB & FastAPI",
+    summary:
+      "Pipeline Data & ML en Python développé par Marin Weis pour la détection d'anomalies sur séries temporelles IoT : validation stricte Pydantic v2, features glissantes Pandas, Scikit-learn Isolation Forest, stockage SQL DuckDB, FastAPI et rapports Matplotlib.",
+  },
+  {
     slug: "incident-tracker",
     title: "Incident Tracker API — Java / Spring Boot 3, JWT & PostgreSQL | Marin Weis",
     description:
