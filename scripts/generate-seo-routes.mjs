@@ -121,6 +121,17 @@ for (const route of routes) {
     .replace(
       /<h1>[\s\S]*?<\/h1>/,
       `<h1>${route.heading}</h1><p>${route.summary}</p>`
+    )
+    .replace(
+      "</head>",
+      `  <script type="application/ld+json">${JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Portfolio Marin Weis", item: "https://marin-weis.github.io/" },
+          { "@type": "ListItem", position: 2, name: route.heading, item: routeUrl },
+        ],
+      })}</script>\n  </head>`
     );
 
   const routeDir = path.join(distDir, route.slug);
