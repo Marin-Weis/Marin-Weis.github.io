@@ -14,6 +14,7 @@ import MongolingoCaseStudy from "./components/MongolingoCaseStudy";
 import DevopsLabCaseStudy from "./components/DevopsLabCaseStudy";
 import IncidentTrackerCaseStudy from "./components/IncidentTrackerCaseStudy";
 import IotAnomalyCaseStudy from "./components/IotAnomalyCaseStudy";
+import SplashTempoCaseStudy from "./components/SplashTempoCaseStudy";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 
@@ -32,6 +33,11 @@ const ROUTE_SEO: Record<string, { title: string; description: string }> = {
     title: "Marin Weis — Développeur Full-Stack, Web & Mobile | Portfolio BUT Informatique Vannes (UBS)",
     description:
       "Portfolio officiel de Marin Weis, étudiant en BUT Informatique à l'IUT de Vannes (Université Bretagne Sud) et développeur Full-Stack Web & Mobile (React, Next.js, TypeScript, Java, Kotlin, SQL, MongoDB).",
+  },
+  "/splash-tempo": {
+    title: "SplashTempo — Coach Natation & Sauvetage Android (Kotlin / Compose) | Marin Weis",
+    description:
+      "Étude de cas SplashTempo : application mobile Android native (Kotlin, Jetpack Compose, Room, Coroutines) pour le fractionné natation & sauvetage sportif et calcul CSS.",
   },
   "/iot-anomaly-pipeline": {
     title: "IoT Anomaly Pipeline — Python, Scikit-learn, DuckDB & FastAPI | Marin Weis",
@@ -227,6 +233,14 @@ const RoutedContent = () => {
             element={
               <CaseStudyPage>
                 <IotAnomalyCaseStudy />
+              </CaseStudyPage>
+            }
+          />
+          <Route
+            path="/splash-tempo"
+            element={
+              <CaseStudyPage>
+                <SplashTempoCaseStudy />
               </CaseStudyPage>
             }
           />

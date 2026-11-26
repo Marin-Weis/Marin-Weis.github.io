@@ -11,12 +11,13 @@ import mongolingoCover from "../assets/projects/Mongolingo/mongolingo-cover.webp
 import devopsLabCover from "../assets/projects/DevOps Lab/devops-lab-cover.webp";
 import incidentTrackerCover from "../assets/projects/Incident Tracker/incident-tracker-swagger.webp";
 import iotAnomalyCover from "../assets/projects/IoT Anomaly/iot-anomaly-report.webp";
+import splashTempoCover from "../assets/projects/SplashTempo/splashtempo-screens.webp";
 
 import github from "../assets/icons/github.png";
 import youtube from "../assets/icons/youtube.png";
 
 type ProjectCategory = "web" | "mobile" | "devops";
-type ProjectKey = "firstAid" | "dual" | "askCombak" | "mongolingo" | "devopsLab" | "incidentTracker" | "iotAnomaly";
+type ProjectKey = "firstAid" | "dual" | "askCombak" | "mongolingo" | "devopsLab" | "incidentTracker" | "iotAnomaly" | "splashTempo";
 
 interface Project {
   key: ProjectKey;
@@ -29,6 +30,14 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    key: "splashTempo",
+    technologies: ["Kotlin", "Jetpack Compose", "Room", "Coroutines", "JUnit"],
+    repolink: "https://github.com/Marin-Weis/splash-tempo",
+    image: splashTempoCover,
+    category: "mobile",
+    caseStudyPath: "/splash-tempo",
+  },
   {
     key: "iotAnomaly",
     technologies: ["Python", "FastAPI", "Scikit-learn", "DuckDB", "Docker"],

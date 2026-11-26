@@ -13,6 +13,15 @@ const baseHtml = fs.readFileSync(baseHtmlPath, "utf-8");
 
 const routes = [
   {
+    slug: "splash-tempo",
+    title: "SplashTempo — Coach Natation & Sauvetage Android (Kotlin / Compose) | Marin Weis",
+    description:
+      "Étude de cas SplashTempo : application mobile Android native (Kotlin, Jetpack Compose, Room, Coroutines) pour le fractionné natation & sauvetage sportif et calcul CSS.",
+    heading: "SplashTempo — Coach Fractionné Natation & Sauvetage (Android)",
+    summary:
+      "Application Android native développée par Marin Weis en Kotlin, Jetpack Compose, Room et Coroutines : minuteur à départ cadencé, bips/vibrations de bassin, calculateur Critical Swim Speed (CSS) et historique hors-ligne.",
+  },
+  {
     slug: "iot-anomaly-pipeline",
     title: "IoT Anomaly Pipeline — Python, Scikit-learn, DuckDB & FastAPI | Marin Weis",
     description:

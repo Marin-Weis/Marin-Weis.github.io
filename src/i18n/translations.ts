@@ -124,6 +124,11 @@ const en = {
           description:
             "An AI-powered conversational shopping assistant built during my internship at Combak (a refurbished-tech comparator). It guides users through a conversation to recommend the right product and the best deals, directly embedded into the website.",
         },
+        splashTempo: {
+          title: "SplashTempo",
+          description:
+            "Minimalist Android swim & lifesaving interval coach (Kotlin, Jetpack Compose, Room, Coroutines): send-off timer, audio/haptic cues, CSS pace zones, and offline workout history.",
+        },
         iotAnomaly: {
           title: "IoT Anomaly Pipeline",
           description:
@@ -501,6 +506,79 @@ const en = {
       takeaway: {
         p1: "This internship taught me to build a real, production-grade AI feature end to end — from front-end UX to API, data and prompt design.",
         p2: "The hardest and most rewarding part was grounding the LLM in real product data, so the assistant gives trustworthy, useful recommendations rather than generic answers.",
+      },
+    },
+    splashTempo: {
+      title: "SplashTempo",
+      badge: "Mobile · Android (Kotlin / Jetpack Compose) · Personal project",
+      heading: "A minimalist poolside Android interval coach for swimming & lifesaving sets, with Room persistence and CSS pace zones.",
+      intro:
+        "SplashTempo is a native Android app built with Kotlin, Jetpack Compose, Room, and Coroutines. Inspired by my competitive lifesaving background, it runs send-off interval sets with a crisp tabular stopwatch, poolside audio/haptic countdown cues, a Critical Swim Speed (CSS) zone calculator, and offline workout history.",
+      coverAlt: "SplashTempo Android screens showing Interval Timer, CSS Pace Calculator, and Room History",
+      repoButton: "View the repository",
+      meta: {
+        roleLabel: "My role",
+        role: "Solo Android developer",
+        stackLabel: "Tech stack",
+        stack: "Kotlin · Jetpack Compose · Room · Coroutines · JUnit",
+        focusLabel: "Focus",
+        focus: "Interval state machine · Offline storage · Clean UI",
+      },
+      context: {
+        title: "Context",
+        text: "As a competitive lifesaver and lifeguard (BNSSA), I wanted a distraction-free poolside timer built specifically for send-off sets (like 8x50m on 0:55 or 4x100m manikin tow) without cluttered fitness-tracker menus.",
+      },
+      architecture: {
+        title: "How it works",
+        text: "A pure Kotlin state machine (IntervalTimerEngine) drives countdowns, rep transitions, and split logging independently from Android, while ViewModel Coroutines tick the UI and persist completed sets into Room.",
+        points: [
+          { label: "Timer Engine", value: "Deterministic Kotlin state machine (unit-tested)" },
+          { label: "CSS & Zones", value: "Critical Swim Speed formula & 5 training paces" },
+          { label: "Persistence", value: "Room (SQLite) + reactive Kotlin Flow history" },
+          { label: "Poolside Cues", value: "ToneGenerator audio beeps + Vibrator haptics" },
+        ],
+      },
+      features: [
+        {
+          title: "Send-Off Interval Timer",
+          text: "Built for real pool training.",
+          items: [
+            "Pre-loaded swim & lifesaving presets plus custom set creation.",
+            "Tabular-numeral stopwatch with clear SWIMMING / RESTING / GET READY badges.",
+            "One-tap Wall Touch button logging swim vs. rest splits and /100m pace.",
+          ],
+        },
+        {
+          title: "CSS & Training Zones",
+          text: "Turn 400m & 200m test times into target splits.",
+          items: [
+            "Computes Critical Swim Speed (m/s and /100m pace).",
+            "Generates 5 zones from Recovery to Sprint / Rescue.",
+            "Displays both /100m and 50m split targets.",
+          ],
+        },
+        {
+          title: "Offline Room History",
+          text: "Every completed set saved automatically.",
+          items: [
+            "Stores total distance, average split, best split, and /100m pace.",
+            "Reactive Flow updates total volume and personal bests.",
+            "Works 100% offline on the pool deck.",
+          ],
+        },
+        {
+          title: "Clean Architecture & CI",
+          text: "Tested domain logic and automated APK builds.",
+          items: [
+            "Domain layer isolated from Android framework for fast JUnit testing.",
+            "Audio/haptic toggles for quiet or noisy pools.",
+            "GitHub Actions CI running unit tests and assembleDebug.",
+          ],
+        },
+      ],
+      takeaway: {
+        p1: "Building SplashTempo let me pair a personal sport passion with clean Android architecture (pure domain state machine, Room DAO/Flow, and Material 3 Jetpack Compose).",
+        p2: "Keeping the UI intentionally simple and high-contrast makes it genuinely usable at a glance between pool intervals.",
       },
     },
     iotAnomaly: {
@@ -930,6 +1008,11 @@ const fr: Dict = {
           description:
             "Un assistant d'achat conversationnel propulsé par l'IA, réalisé pendant mon stage chez Combak (comparateur de high-tech reconditionné). Il guide l'utilisateur via une conversation pour recommander le bon produit et les meilleures offres, directement intégré au site.",
         },
+        splashTempo: {
+          title: "SplashTempo",
+          description:
+            "Coach mobile Android pour le fractionné natation & sauvetage (Kotlin, Jetpack Compose, Room, Coroutines) : chrono à départ fixe, bips/vibrations, zones CSS et historique hors-ligne.",
+        },
         iotAnomaly: {
           title: "IoT Anomaly Pipeline",
           description:
@@ -1307,6 +1390,79 @@ const fr: Dict = {
       takeaway: {
         p1: "Ce stage m'a appris à construire une vraie fonctionnalité IA de bout en bout, prête pour la production — de l'UX front-end à l'API, aux données et au prompt engineering.",
         p2: "La partie la plus difficile et la plus gratifiante a été d'ancrer le LLM dans de vraies données produits, pour que l'assistant donne des recommandations fiables et utiles, et non des réponses génériques.",
+      },
+    },
+    splashTempo: {
+      title: "SplashTempo",
+      badge: "Mobile · Android (Kotlin / Jetpack Compose) · Projet personnel",
+      heading: "Un coach Android épuré pour le fractionné natation & sauvetage sportif, avec historique Room et calcul de zones CSS.",
+      intro:
+        "SplashTempo est une application Android native développée en Kotlin avec Jetpack Compose, Room et Coroutines. Inspirée de ma pratique du sauvetage sportif, elle gère les séries à départ cadencé avec un chrono haute lisibilité, des bips/vibrations de départ, un calculateur de vitesse critique (CSS) et un historique hors-ligne.",
+      coverAlt: "Écrans Android SplashTempo : Chrono fractionné, Calculateur CSS et Historique Room",
+      repoButton: "Voir le dépôt",
+      meta: {
+        roleLabel: "Mon rôle",
+        role: "Développeur Android (projet solo)",
+        stackLabel: "Stack technique",
+        stack: "Kotlin · Jetpack Compose · Room · Coroutines · JUnit",
+        focusLabel: "Focus",
+        focus: "Machine à états chrono · Stockage hors-ligne · UI épurée",
+      },
+      context: {
+        title: "Contexte",
+        text: "Pratiquant le sauvetage sportif (BNSSA / PSE1), je voulais une application de bord de bassin ultra lisible dédiée aux séries à départ fixe (ex. 8x50m départ 0:55 ou 4x100m mannequin), sans menus superflus.",
+      },
+      architecture: {
+        title: "Comment ça marche",
+        text: "Une machine à états Kotlin pure (IntervalTimerEngine) pilote comptes à rebours, changements de répétition et splits indépendamment d'Android, tandis que le ViewModel anime l'UI en Coroutines et sauvegarde les séances terminées dans Room.",
+        points: [
+          { label: "Moteur Chrono", value: "Machine à états Kotlin déterministe (testée JUnit)" },
+          { label: "CSS & Zones", value: "Formule Critical Swim Speed & 5 zones d'allure" },
+          { label: "Persistance", value: "Base Room (SQLite) + Flow réactif" },
+          { label: "Signaux Bassin", value: "Bips ToneGenerator + vibrations haptiques" },
+        ],
+      },
+      features: [
+        {
+          title: "Chrono à départ cadencé",
+          text: "Pensé pour l'entraînement réel en bassin.",
+          items: [
+            "Séances natation & sauvetage préconfigurées + création sur mesure.",
+            "Gros chrono en chiffres tabulaires et badges clairs (SWIMMING / RESTING).",
+            "Bouton Wall Touch enregistrant temps nagé, repos et allure au 100m.",
+          ],
+        },
+        {
+          title: "Calculateur CSS & Zones",
+          text: "Transformer 400m et 200m en allures cibles.",
+          items: [
+            "Calcule la Critical Swim Speed (m/s et allure au 100m).",
+            "Génère 5 zones d'entraînement de Recovery à Sprint / Rescue.",
+            "Affiche les temps cibles au 100m et au 50m.",
+          ],
+        },
+        {
+          title: "Historique Room hors-ligne",
+          text: "Chaque séance terminée est sauvegardée.",
+          items: [
+            "Enregistre volume total, split moyen, meilleur split et allure /100m.",
+            "Mise à jour réactive du volume cumulé et du record.",
+            "Fonctionne 100 % hors-ligne au bord du bassin.",
+          ],
+        },
+        {
+          title: "Architecture propre & CI",
+          text: "Domaine testé et build APK automatisé.",
+          items: [
+            "Logique métier isolée du framework Android pour des tests JUnit rapides.",
+            "Activation/désactivation rapide du son et des vibrations.",
+            "CI GitHub Actions exécutant tests unitaires et assembleDebug.",
+          ],
+        },
+      ],
+      takeaway: {
+        p1: "SplashTempo m'a permis d'allier ma pratique sportive à une architecture Android moderne (machine à états pure, Room + Flow, Jetpack Compose).",
+        p2: "Le choix d'un design volontairement simple et contrasté rend l'écran lisible d'un coup d'œil entre deux longueurs.",
       },
     },
     iotAnomaly: {
@@ -1734,6 +1890,11 @@ const de: Dict = {
           description:
             "Ein KI-gestützter dialogbasierter Einkaufsassistent, entwickelt während meines Praktikums bei Combak (Vergleichsportal für refurbished Technik). Er führt Nutzer durch ein Gespräch, um das passende Produkt und die besten Angebote zu empfehlen — direkt in die Website integriert.",
         },
+        splashTempo: {
+          title: "SplashTempo",
+          description:
+            "Minimalistischer Android-Intervallcoach für Schwimmen & Rettungssport (Kotlin, Jetpack Compose, Room, Coroutines): Abgangszeit-Timer, Signale, CSS-Zonen und Offline-Verlauf.",
+        },
         iotAnomaly: {
           title: "IoT Anomaly Pipeline",
           description:
@@ -2111,6 +2272,79 @@ const de: Dict = {
       takeaway: {
         p1: "Dieses Praktikum hat mir beigebracht, ein echtes, produktionsreifes KI-Feature von A bis Z zu bauen — von der Frontend-UX über die API und die Daten bis zum Prompt-Engineering.",
         p2: "Am schwierigsten und lohnendsten war es, das LLM in echten Produktdaten zu verankern, damit der Assistent vertrauenswürdige, nützliche Empfehlungen gibt statt generischer Antworten.",
+      },
+    },
+    splashTempo: {
+      title: "SplashTempo",
+      badge: "Mobile · Android (Kotlin / Jetpack Compose) · Privatprojekt",
+      heading: "Ein minimalistischer Android-Intervallcoach für Schwimm- & Rettungssport mit Room-Datenbank und CSS-Tempozoonen.",
+      intro:
+        "SplashTempo ist eine native Android-App in Kotlin mit Jetpack Compose, Room und Coroutines. Inspiriert vom Rettungssport steuert sie Abgangszeiten mit einer gut lesbaren Stoppuhr, Audio-/Vibrationssignalen, einem CSS-Rechner und Offline-Trainingsverlauf.",
+      coverAlt: "SplashTempo Android-Ansichten: Intervall-Timer, CSS-Rechner und Room-Verlauf",
+      repoButton: "Repository ansehen",
+      meta: {
+        roleLabel: "Meine Rolle",
+        role: "Solo-Android-Entwickler",
+        stackLabel: "Tech-Stack",
+        stack: "Kotlin · Jetpack Compose · Room · Coroutines · JUnit",
+        focusLabel: "Schwerpunkt",
+        focus: "Timer-Zustandsautomat · Offline-Speicher · Klare UI",
+      },
+      context: {
+        title: "Kontext",
+        text: "Als Rettungsschwimmer wollte ich eine ablenkungsfreie Beckenrand-App speziell für feste Abgangszeiten (z. B. 8x50m alle 0:55 oder 4x100m Puppenschleppen).",
+      },
+      architecture: {
+        title: "So funktioniert es",
+        text: "Ein reiner Kotlin-Zustandsautomat (IntervalTimerEngine) steuert Countdown, Wiederholungen und Splits unabhängig von Android, während Coroutines die UI aktualisieren und Einheiten in Room speichern.",
+        points: [
+          { label: "Timer-Engine", value: "Deterministischer Kotlin-Automat (JUnit-getestet)" },
+          { label: "CSS & Zonen", value: "Critical Swim Speed & 5 Trainingszonen" },
+          { label: "Persistenz", value: "Room (SQLite) + reaktiver Kotlin Flow" },
+          { label: "Signale", value: "ToneGenerator-Pieptöne + Vibrations-Feedback" },
+        ],
+      },
+      features: [
+        {
+          title: "Abgangszeit-Timer",
+          text: "Für echtes Becken-Training gebaut.",
+          items: [
+            "Vorgefertigte Schwimm- & Rettungs-Sets sowie eigene Intervalle.",
+            "Große Stoppuhr mit Tabellenziffern und klaren Status-Badges.",
+            "Wall-Touch-Taste erfasst Schwimmzeit, Pause und /100m-Pace.",
+          ],
+        },
+        {
+          title: "CSS & Tempozoonen",
+          text: "400m- & 200m-Zeiten in Zieltempos umrechnen.",
+          items: [
+            "Berechnet Critical Swim Speed (m/s und /100m).",
+            "Erstellt 5 Zonen von Recovery bis Sprint / Rescue.",
+            "Zeigt Zielzeiten für 100m und 50m.",
+          ],
+        },
+        {
+          title: "Offline-Verlauf in Room",
+          text: "Jedes abgeschlossene Set wird gespeichert.",
+          items: [
+            "Speichert Gesamtdistanz, Schnitt, Bestzeit und /100m-Pace.",
+            "Reaktiver Flow aktualisiert Gesamtumfang und Bestwerte.",
+            "Funktioniert 100 % offline am Beckenrand.",
+          ],
+        },
+        {
+          title: "Saubere Architektur & CI",
+          text: "Getestete Domänenlogik & automatischer APK-Build.",
+          items: [
+            "Domäne vom Android-Framework entkoppelt für schnelle JUnit-Tests.",
+            "Schnelle Schalter für Ton und Vibration.",
+            "GitHub Actions CI mit Unit-Tests und assembleDebug.",
+          ],
+        },
+      ],
+      takeaway: {
+        p1: "Mit SplashTempo konnte ich meinen Sport mit sauberer Android-Architektur (Zustandsautomat, Room/Flow und Jetpack Compose) verbinden.",
+        p2: "Das bewusst schlichte, kontrastreiche Design bleibt zwischen zwei Bahnen auf einen Blick lesbar.",
       },
     },
     iotAnomaly: {
