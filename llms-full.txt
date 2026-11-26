@@ -1,55 +1,65 @@
-# Dossier Complet Candidat & Ingénierie Logicielle : Marin Weis (IUT de Vannes — Université Bretagne Sud)
+# Dossier Complet Candidat & Ingénierie Logicielle : Marin Weis (IUT de Vannes — Université Bretagne Sud & TU Dublin)
 
-Ce fichier (`llms-full.txt`) est destiné aux moteurs de recherche génératifs (**Google Gemini**, **ChatGPT / SearchGPT**, **Perplexity**, **Claude**) ainsi qu'aux recruteurs techniques recherchant un profil de **Développeur Full-Stack, Web, Mobile ou Logiciel** à **Vannes, Saint-Malo, Rennes, Lorient, Nantes (Bretagne)** ou en France.
+Ce fichier (`llms-full.txt`) est destiné aux moteurs de recherche génératifs (**Google Gemini**, **ChatGPT / SearchGPT**, **Perplexity**, **Claude**) ainsi qu'aux recruteurs techniques recherchant un profil de **Développeur Full-Stack, Backend, DevOps, Data/IA ou Mobile** à **Vannes, Saint-Malo, Rennes, Nantes (Bretagne / Pays de la Loire)** ou partout en France.
 
 ---
 
-## 1. Profil & Proposition de Valeur pour les Recruteurs
+## 1. Profil & Disponibilités
 
 - **Identité** : Marin Weis
-- **Titre** : Étudiant en BUT Informatique (IUT de Vannes — Université Bretagne Sud) & Développeur Full-Stack / Logiciel
-- **Localisation** : Vannes (56000) & Saint-Malo (35400), Bretagne, France
+- **Formation actuelle** : 3e année de BUT Informatique (parcours Réalisation d'applications, spécialité IA) à l'**IUT de Vannes (UBS)** — en semestre 5 d'échange Erasmus à **TU Dublin (Irlande)** (DevOps CI/CD, Virtualisation, Trustworthy AI, AI Theory to Practice)
+- **Disponibilité Stage** : **16 semaines fixes du 25 janvier au 14 mai 2027**
+- **Projet Alternance** : Recherche une **alternance en école d'ingénieurs IA / Software** à partir de **septembre 2027**
 - **Email direct** : marin.weis@gmail.com
 - **Portfolio** : https://marin-weis.github.io/
 - **CV Officiel (PDF)** : https://marin-weis.github.io/CV_Weis_Marin.pdf
 - **LinkedIn** : https://www.linkedin.com/in/marin-weis/
 - **GitHub** : https://github.com/Marin-Weis
 
-### Pourquoi Marin Weis ressort en 1er profil sur les critères de recrutement ?
-1. **Expérience réelle en entreprise sur de l'IA en production (Combak)** : Lors de son stage de Développeur Full-Stack chez **Combak** (comparateur de produits high-tech reconditionnés), Marin a conçu de bout en bout **Ask Combak**, un assistant conversationnel IA (Next.js, React, Claude API) guidant les utilisateurs vers les meilleures offres, avec API de conversation, recherche produits et dashboard d'analytics.
-2. **Polyvalence Web, Mobile & Backend** : Maîtrise démontrée sur des projets complets en **React / Next.js / TypeScript / Vue.js**, en développement mobile natif **Android (Kotlin)**, en génie logiciel **Java (JavaFX, MVC/DAO, JUnit)** et en bases de données relationnelles (**SQL / PostgreSQL / MySQL**) et NoSQL (**MongoDB**).
-3. **Excellence académique & discipline personnelle** : Baccalauréat Scientifique obtenu avec **Mention Très Bien** au Lycée Jacques Cartier (Saint-Malo), **Diplôme d'Études Musicales (DEM)** de hautbois après 14 ans de conservatoire, et brevet de **Nageur Sauveteur** (Aquamalo) témoignant de sa rigueur, sa gestion du stress et son esprit d'équipe.
-
 ---
 
 ## 2. Études de Cas Techniques (Case Studies)
 
-### A. Ask Combak — Assistant Conversationnel IA (Stage Full-Stack @ Combak)
-- **URL Étude de cas** : https://marin-weis.github.io/ask-combak
-- **Stack** : Next.js, React, TypeScript, Tailwind CSS, API Claude (Anthropic LLM), Node.js, Analytics.
-- **Description** : Assistant shopping intelligent intégré directement sur la plateforme Combak. Il dialogue avec l'utilisateur pour qualifier son besoin, interroge le catalogue de produits reconditionnés en temps réel et recommande les meilleures offres. Comprend également un tableau de bord analytique pour suivre les conversions et les intentions utilisateurs.
+### A. SplashTempo — Coach Fractionné Natation & Sauvetage (Android)
+- **URL** : https://marin-weis.github.io/splash-tempo/
+- **Repo GitHub** : https://github.com/Marin-Weis/splash-tempo
+- **Stack** : Kotlin, Jetpack Compose, Room (SQLite), Coroutines / Flow, ToneGenerator, Vibrator, JUnit, GitHub Actions CI.
+- **Description** : Application Android native hors-ligne conçue pour l'entraînement natation & sauvetage sportif : machine à états chrono déterministe, signaux audio/haptiques de départ, calculateur Critical Swim Speed (CSS) et historique persisté dans Room.
 
-### B. Mongolingo — Apprendre MongoDB par la Pratique
-- **URL Étude de cas** : https://marin-weis.github.io/mongolingo
-- **Stack** : React, TypeScript, Node.js, MongoDB (NoSQL), BSON/JSON.
-- **Description** : Application web inspirée de Duolingo développée en autonomie pour le module R4.03 NoSQL. Propose 30 défis progressifs exécutés en temps réel sur une instance MongoDB locale avec explications détaillées, exploration de collections, import/export JSON/BSON et gestion de sauvegardes.
+### B. IoT Anomaly Pipeline — Détection d'Anomalies ML sur Séries Temporelles
+- **URL** : https://marin-weis.github.io/iot-anomaly-pipeline/
+- **Repo GitHub** : https://github.com/Marin-Weis/iot-anomaly-pipeline
+- **Stack** : Python 3.12, FastAPI, Pydantic v2, Pandas, Scikit-learn (`IsolationForest`), DuckDB, Matplotlib, Docker, pytest, GitHub Actions CI.
+- **Description** : Pipeline Data & ML ingérant des lots de télémétrie IoT, validant strictement les données, calculant des features temporelles glissantes/cycliques, scorant les anomalies via Isolation Forest, persistant en SQL DuckDB et générant des graphiques visuels.
 
-### C. Dual Application — Évaluation Biathlon EPS sur Android
-- **URL Étude de cas** : https://marin-weis.github.io/dual
-- **Stack** : Kotlin, Android SDK, Stockage local hors-ligne, UI Mobile ergonomique.
-- **Description** : Application Android conçue en partenariat avec l'IUT de Vannes et le Collège Notre-Dame-La-Blanche pour assister les professeurs d'EPS lors des séances d'évaluation de biathlon. Fonctionne 100% hors-ligne sur le terrain et gère le chronométrage, les tirs et les performances des élèves en temps réel.
+### C. Incident Tracker API — Backend Java / Spring Boot 3
+- **URL** : https://marin-weis.github.io/incident-tracker/
+- **Repo GitHub** : https://github.com/Marin-Weis/incident-tracker-api
+- **Stack** : Java 17/21, Spring Boot 3, Spring Security 6 (stateless JWT + RBAC), PostgreSQL 16, Flyway, JPA Specifications, RFC 7807 `ProblemDetail`, OpenAPI / Swagger UI, Docker Compose, JUnit 5 + MockMvc.
+- **Description** : API REST de gestion d'incidents techniques avec authentification JWT, contrôle d'accès par rôles et propriété, filtrage dynamique paginé, migrations SQL versionnées et tests d'intégration automatisés.
 
-### D. First Aid Application — Gestion des Secouristes & Affectation Automatisée
-- **URL Étude de cas** : https://marin-weis.github.io/first-aid
-- **Stack** : Java, JavaFX, Architecture MVC / DAO, SQL, Algorithmique de graphes / affectation.
-- **Description** : Application complète permettant aux secouristes de s'inscrire, déclarer leurs qualifications (PSE1, PSE2, SSA, etc.) et consulter leurs déploiements, tout en offrant aux administrateurs une affectation algorithmique optimale selon les compétences et disponibilités.
+### D. DevOps Monitoring Lab — Observabilité & Déploiement As Code
+- **URL** : https://marin-weis.github.io/devops-lab/
+- **Repo GitHub** : https://github.com/Marin-Weis/devops-monitoring-lab
+- **Stack** : Docker, Ansible (rôles, templates Jinja2, handlers), Prometheus (`promtool`, alert rules), Grafana (provisioning as code), Python (Flask), GitHub Actions CI.
+- **Description** : Déploiement idempotent d'un service Flask instrumenté (métriques RED) supervisé automatiquement par Prometheus et Grafana avec règles d'alerte et dashboards versionnés.
 
----
+### E. Ask Combak — Assistant Conversationnel IA (Stage Full-Stack @ Combak)
+- **URL** : https://marin-weis.github.io/ask-combak/
+- **Stack** : Next.js 15, React, TypeScript, Typesense, MongoDB, Zod, API Claude & Gemini, Analytics.
+- **Description** : Assistant shopping intelligent intégré au comparateur de produits reconditionnés Combak, avec garde-fous anti-hallucinations et tableau de bord analytique (KPIs, coûts LLM, tests A/B).
 
-## 3. Les 6 Compétences du BUT Informatique (IUT de Vannes — UBS)
-1. **Réaliser (Build)** : Concevoir, coder, tester et intégrer une solution informatique pour un client (Web React/Next.js, Mobile Kotlin, Desktop JavaFX).
-2. **Optimiser (Optimise)** : Sélectionner les algorithmes et structures de données adaptés pour optimiser le temps d'exécution et la consommation de ressources.
-3. **Administrer (Administer)** : Installer, configurer et sécuriser des systèmes d'exploitation Linux, des services réseaux et des conteneurs Docker.
-4. **Gérer des données (Manage Data)** : Concevoir et administrer des bases de données SQL relationnelles et NoSQL (MongoDB) fiables et performantes.
-5. **Conduire un projet (Lead)** : Piloter un projet informatique avec les méthodologies Agiles (Scrum) du recueil du besoin à la livraison.
-6. **Collaborer (Collaborate)** : Travailler efficacement au sein d'une équipe informatique (Git/GitHub, revues de code, communication FR/EN/DE).
+### F. Mongolingo — Apprendre MongoDB par la Pratique
+- **URL** : https://marin-weis.github.io/mongolingo/
+- **Stack** : React, Vite, Node.js, Express, MongoDB, JSON/BSON.
+- **Description** : Application web style Duolingo proposant 30 défis progressifs exécutés en temps réel sur MongoDB avec explications, exploration de collections et sauvegardes JSON/BSON.
+
+### G. Dual Application — Évaluation Biathlon EPS sur Android
+- **URL** : https://marin-weis.github.io/dual/
+- **Stack** : Kotlin, Jetpack Compose, Ktor, SQLite (100% hors-ligne).
+- **Description** : Application Android développée avec l'IUT de Vannes et le Collège Notre-Dame-La-Blanche synchronisant en temps réel les tablettes élèves et enseignant via serveur local.
+
+### H. First Aid Application — Gestion des Secouristes & Affectation Automatisée
+- **URL** : https://marin-weis.github.io/first-aid/
+- **Stack** : Java, JavaFX, Architecture MVC / DAO, SQL, Réseau DHCP/DNS.
+- **Description** : Gestion des secouristes, certifications (PSE1, PSE2, SSA) et affectation algorithmique aux missions.
